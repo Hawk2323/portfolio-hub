@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "portfolio.projects.v1",
+  "updatedAt": "2026-05-31T20:59:53.438Z",
+  "sections": [
+    {
+      "id": "dentivis",
+      "title": "Dentivis",
+      "description": "Projects around the Dentivis practice.",
+      "sortOrder": 10
+    },
+    {
+      "id": "private",
+      "title": "Private",
+      "description": "Private and experimental projects curated for sharing when ready.",
+      "sortOrder": 20
+    }
+  ],
+  "projects": [
+    {
+      "id": "dentivis-waiting-screen",
+      "title": "Dentivis Waiting Screen",
+      "slug": "dentivis-waiting-screen",
+      "section": "dentivis",
+      "status": "live",
+      "url": "https://example.com",
+      "description": "Waiting room screen concept for Dentivis signage and patient communication.",
+      "tags": [
+        "Dentivis",
+        "Vercel",
+        "signage"
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": null,
+      "featured": true,
+      "sortOrder": 10,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "dentivis-web",
+      "title": "Dentivis Web",
+      "slug": "dentivis-web",
+      "section": "dentivis",
+      "status": "wip",
+      "url": "https://example.com",
+      "description": "Placeholder portfolio entry for a public Dentivis web presentation.",
+      "tags": [
+        "Dentivis",
+        "web"
+      ],
+      "visibility": "private",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 20,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "portfolio-hub",
+      "title": "Portfolio Hub",
+      "slug": "portfolio-hub",
+      "section": "private",
+      "status": "wip",
+      "url": "https://example.com",
+      "description": "A clean public project index with protected editing and generated thumbnails.",
+      "tags": [
+        "Next.js",
+        "portfolio",
+        "automation"
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/portfolio-hub.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-05-31T20:59:53.315Z",
+      "featured": true,
+      "sortOrder": 30,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "dictaphone-concept",
+      "title": "Dictaphone Concept",
+      "slug": "dictaphone-concept",
+      "section": "private",
+      "status": "idea",
+      "url": "https://example.com",
+      "description": "Safe placeholder for a private dictation workflow concept.",
+      "tags": [
+        "concept",
+        "audio"
+      ],
+      "visibility": "private",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 40,
+      "source": "manual",
+      "notesPrivate": ""
+    }
+  ]
+}

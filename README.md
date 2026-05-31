@@ -1,0 +1,83 @@
+# Portfolio Hub
+
+Portfolio Hub is a clean public tile index for curated projects. The public page shows only `visibility = public` projects from `data/projects.json`; admin editing is protected by a signed HttpOnly session.
+
+## Local development
+
+```bash
+npm ci
+cp .env.example .env
+npm run validate
+npm run dev
+```
+
+Set `ADMIN_PASSWORD` and `SESSION_SECRET` before using `/admin`.
+
+## Add a project
+
+Use `/admin`, or edit `data/projects.json` directly and run:
+
+```bash
+npm run validate
+npm run thumbnails
+```
+
+New admin-created projects default to `private`. Set `visibility` to `public` only for curated items that are safe to share.
+
+## Admin
+
+Admin routes:
+
+- `POST /api/admin/login`
+- `POST /api/admin/logout`
+- `GET /api/admin/session`
+- `GET /api/admin/projects`
+- `PUT /api/admin/projects`
+- `POST /api/admin/regenerate-thumbnail`
+
+In production, writes require GitHub Contents API configuration. Tokens are read only on the server and must never be committed.
+
+## Thumbnails
+
+`npm run thumbnails` opens each eligible project URL with Playwright, captures a screenshot, and composes a `1200 x 760` WebP thumbnail with Sharp.
+
+Skipped automatically:
+
+- `thumbnailLocked = true`
+- `thumbnailMode = manual`
+
+If a URL fails, the script creates a fallback thumbnail and sets `thumbnailMode = fallback`.
+
+## Deployment
+
+Deploy as Vercel project `portfolio-hub`. Required production environment variables:
+
+```text
+ADMIN_PASSWORD
+SESSION_SECRET
+GITHUB_TOKEN
+GITHUB_OWNER=Hawk2323
+GITHUB_REPO=portfolio-hub
+GITHUB_BRANCH=main
+NEXT_PUBLIC_ALLOW_INDEXING=false
+```
+
+Run:
+
+```bash
+npm ci
+npm run validate
+npm run build
+vercel link --yes --project portfolio-hub
+vercel --prod --yes
+```
+
+See `docs/DEPLOYMENT.md` for non-interactive `VERCEL_TOKEN` deployment.
+
+## Search indexing
+
+`NEXT_PUBLIC_ALLOW_INDEXING=false` is the default. The app emits `noindex,nofollow`, and `public/robots.txt` disallows all crawlers.
+
+## When thumbnail generation fails
+
+Check that the URL is public, loads without authentication, and is reachable from GitHub Actions. Then reset `thumbnailMode` to `auto` and rerun the thumbnail workflow.

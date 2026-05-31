@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #f5f7fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(31, 107, 93, 0.11), transparent 34rem),
+    linear-gradient(180deg, #fbfcfe 0%, #eef2f7 100%);
+  color: #182033;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.focus-ring {
+  @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pine;
+}
+
+.admin-input {
+  @apply focus-ring rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-ink shadow-sm;
+}
+
+.admin-button-primary {
+  @apply focus-ring rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.admin-button-secondary {
+  @apply focus-ring rounded-lg bg-white px-4 py-2 text-sm font-semibold text-slate-700 ring-1 ring-slate-200 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60;
+}
+
+.admin-button-danger {
+  @apply focus-ring rounded-lg bg-white px-4 py-2 text-sm font-semibold text-coral ring-1 ring-red-100 transition hover:bg-red-50 disabled:cursor-not-allowed disabled:opacity-60;
+}
