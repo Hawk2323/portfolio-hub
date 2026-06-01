@@ -1,12 +1,18 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { cache } from "react";
+import { hasGitHubWriteConfig, readProjectsFromGitHub } from "./github";
 import { projectsFileSchema, type ProjectsFile } from "./schema";
 import { publicProjectsOnly } from "./visibility";
 
 export const DATA_PATH = path.join(process.cwd(), "data", "projects.json");
 
 export const getProjectsFile = cache(async (): Promise<ProjectsFile> => {
+  if (hasGitHubWriteConfig()) {
+    const { data } = await readProjectsFromGitHub();
+    return data;
+  }
+
   const raw = await fs.readFile(DATA_PATH, "utf8");
   return projectsFileSchema.parse(JSON.parse(raw));
 });

@@ -1,6 +1,8 @@
 import ProjectGrid from "@/components/ProjectGrid";
 import { getPublicPortfolio, sortProjects, sortSections } from "@/lib/projects";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const portfolio = await getPublicPortfolio();
   const sections = sortSections(portfolio);

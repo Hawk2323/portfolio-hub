@@ -31,6 +31,7 @@ jobs:
       - run: npm run thumbnails
       - name: Commit thumbnail updates
         run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ -n "$(git status --porcelain data/projects.json public/thumbnails)" ]; then
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
