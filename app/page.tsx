@@ -15,6 +15,12 @@ export default async function Home() {
       </header>
 
       <ProjectGrid sections={sections} projects={projects} />
+
+      <footer className="mt-auto flex justify-end pt-8">
+        <a className="text-xs font-medium text-slate-400 transition hover:text-slate-600" href="/admin">
+          Admin
+        </a>
+      </footer>
     </main>
   );
 }
