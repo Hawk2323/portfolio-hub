@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import type { PortfolioProject, PortfolioSection, ProjectStatus } from "@/lib/schema";
+import type { PortfolioProject, PortfolioSection } from "@/lib/schema";
 import ProjectCard from "./ProjectCard";
 import SectionTabs from "./SectionTabs";
 
@@ -12,42 +12,24 @@ type Props = {
 
 export default function ProjectGrid({ sections, projects }: Props) {
   const [section, setSection] = useState("all");
-  const [status, setStatus] = useState("all");
-  const [tag, setTag] = useState("all");
 
   const sectionById = useMemo(() => new Map(sections.map((item) => [item.id, item])), [sections]);
-  const statuses = useMemo(
-    () => Array.from(new Set(projects.map((project) => project.status))).sort() as ProjectStatus[],
-    [projects]
-  );
-  const tags = useMemo(
-    () => Array.from(new Set(projects.flatMap((project) => project.tags))).sort((a, b) => a.localeCompare(b)),
-    [projects]
-  );
 
   const filtered = useMemo(
     () =>
       projects.filter((project) => {
         if (section !== "all" && project.section !== section) return false;
-        if (status !== "all" && project.status !== status) return false;
-        if (tag !== "all" && !project.tags.includes(tag)) return false;
         return true;
       }),
-    [projects, section, status, tag]
+    [projects, section]
   );
 
   return (
     <section className="py-4">
       <SectionTabs
         sections={sections}
-        statuses={statuses}
-        tags={tags}
         selectedSection={section}
-        selectedStatus={status}
-        selectedTag={tag}
         onSectionChange={setSection}
-        onStatusChange={setStatus}
-        onTagChange={setTag}
       />
 
       {filtered.length > 0 ? (
