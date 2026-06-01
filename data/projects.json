@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-01T14:44:53.831Z",
+  "updatedAt": "2026-06-01T15:51:07.090Z",
   "sections": [
     {
       "id": "dentivis",
@@ -45,13 +45,13 @@
       "slug": "dentivis-web",
       "section": "dentivis",
       "status": "wip",
-      "url": "https://example.com",
-      "description": "Placeholder portfolio entry for a public Dentivis web presentation.",
+      "url": "https://www.dentivis.cz/",
+      "description": "Webové stránky ordinací Dentivis",
       "tags": [
         "Dentivis",
         "web"
       ],
-      "visibility": "private",
+      "visibility": "public",
       "thumbnail": "/thumbnails/_fallback.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
