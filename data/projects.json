@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-01T15:57:10.379Z",
+  "updatedAt": "2026-06-01T16:03:44.597Z",
   "sections": [
     {
       "id": "dentivis",
@@ -103,6 +103,25 @@
       "thumbnailGeneratedAt": "2026-06-01T15:57:10.357Z",
       "featured": false,
       "sortOrder": 40,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "mycka",
+      "title": "Myčka",
+      "slug": "mycka",
+      "section": "private",
+      "status": "wip",
+      "url": "https://dishwasher.onrender.com/",
+      "description": "Aplikace pro záznam, kdo vyndal naposledy myčku a kdo je tedy na řadě.",
+      "tags": [],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
       "source": "manual",
       "notesPrivate": ""
     }
