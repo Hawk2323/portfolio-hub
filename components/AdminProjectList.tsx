@@ -182,8 +182,8 @@ export default function AdminProjectList() {
               </div>
               <p className="text-sm text-slate-600">{project.description}</p>
               <p className="mt-2 text-xs text-slate-500">
-                {sectionById.get(project.section)?.title ?? project.section} · order {project.sortOrder} · {project.thumbnailMode}
-                {project.thumbnailLocked ? " · locked" : ""}
+                {sectionById.get(project.section)?.title ?? project.section} - order {project.sortOrder} - {project.thumbnailMode}
+                {project.thumbnailLocked ? " - locked" : ""}
               </p>
             </div>
             <div className="flex flex-wrap gap-2">

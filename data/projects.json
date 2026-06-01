@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-05-31T20:59:53.438Z",
+  "updatedAt": "2026-06-01T14:38:51.896Z",
   "sections": [
     {
       "id": "dentivis",
@@ -78,7 +78,7 @@
       "thumbnail": "/thumbnails/portfolio-hub.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-05-31T20:59:53.315Z",
+      "thumbnailGeneratedAt": "2026-06-01T14:38:51.819Z",
       "featured": true,
       "sortOrder": 30,
       "source": "manual",

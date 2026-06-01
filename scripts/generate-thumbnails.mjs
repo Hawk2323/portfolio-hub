@@ -115,7 +115,7 @@ async function composeFallback({ outputPath, title, section, status }) {
     </defs>
     <rect width="1200" height="760" rx="38" fill="url(#bg)"/>
     <rect x="52" y="52" width="1096" height="656" rx="30" fill="rgba(255,255,255,0.72)" stroke="#d8dee8"/>
-    <text x="92" y="126" fill="#1f6b5d" font-family="Arial, sans-serif" font-size="32" font-weight="700">${escapeXml(section)} · ${escapeXml(status)}</text>
+    <text x="92" y="126" fill="#1f6b5d" font-family="Arial, sans-serif" font-size="32" font-weight="700">${escapeXml(section)} - ${escapeXml(status)}</text>
     <text x="92" y="384" fill="#182033" font-family="Arial, sans-serif" font-size="72" font-weight="700">${escapeXml(title)}</text>
     <text x="92" y="462" fill="#64748b" font-family="Arial, sans-serif" font-size="30">Thumbnail will be generated when the URL is reachable.</text>
   </svg>`;
@@ -127,7 +127,7 @@ function footerSvg({ title, section, status }) {
   <svg width="${width}" height="208" xmlns="http://www.w3.org/2000/svg">
     <rect width="${width}" height="208" fill="#ffffff"/>
     <rect x="0" y="0" width="${width}" height="1" fill="#d8dee8"/>
-    <text x="52" y="70" fill="#1f6b5d" font-family="Arial, sans-serif" font-size="24" font-weight="700">${escapeXml(section)} · ${escapeXml(status)}</text>
+    <text x="52" y="70" fill="#1f6b5d" font-family="Arial, sans-serif" font-size="24" font-weight="700">${escapeXml(section)} - ${escapeXml(status)}</text>
     <text x="52" y="142" fill="#182033" font-family="Arial, sans-serif" font-size="54" font-weight="700">${escapeXml(title)}</text>
   </svg>`;
 }
