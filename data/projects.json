@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-01T15:52:09.492Z",
+  "updatedAt": "2026-06-01T15:57:10.379Z",
   "sections": [
     {
       "id": "dentivis",
@@ -30,10 +30,10 @@
         "signage"
       ],
       "visibility": "public",
-      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnail": "/thumbnails/dentivis-waiting-screen.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": null,
+      "thumbnailGeneratedAt": "2026-06-01T15:57:01.037Z",
       "featured": true,
       "sortOrder": 10,
       "source": "manual",
@@ -52,10 +52,10 @@
         "web"
       ],
       "visibility": "public",
-      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnail": "/thumbnails/dentivis-web.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": null,
+      "thumbnailGeneratedAt": "2026-06-01T15:57:07.191Z",
       "featured": false,
       "sortOrder": 20,
       "source": "manual",
@@ -78,7 +78,7 @@
       "thumbnail": "/thumbnails/portfolio-hub.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-01T14:44:53.705Z",
+      "thumbnailGeneratedAt": "2026-06-01T15:57:08.775Z",
       "featured": true,
       "sortOrder": 30,
       "source": "manual",
@@ -97,10 +97,10 @@
         "audio"
       ],
       "visibility": "private",
-      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnail": "/thumbnails/dictaphone-concept.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": null,
+      "thumbnailGeneratedAt": "2026-06-01T15:57:10.357Z",
       "featured": false,
       "sortOrder": 40,
       "source": "manual",
