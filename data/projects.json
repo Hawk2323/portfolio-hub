@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-01T16:03:44.597Z",
+  "updatedAt": "2026-06-01T16:03:59.500Z",
   "sections": [
     {
       "id": "dentivis",
@@ -111,7 +111,7 @@
       "title": "Myčka",
       "slug": "mycka",
       "section": "private",
-      "status": "wip",
+      "status": "live",
       "url": "https://dishwasher.onrender.com/",
       "description": "Aplikace pro záznam, kdo vyndal naposledy myčku a kdo je tedy na řadě.",
       "tags": [],
