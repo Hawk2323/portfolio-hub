@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-01T19:10:11.798Z",
+  "updatedAt": "2026-06-02T10:33:36.460Z",
   "sections": [
     {
       "id": "dentivis",
@@ -75,10 +75,10 @@
         "automation"
       ],
       "visibility": "public",
-      "thumbnail": "/thumbnails/portfolio-hub.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-01T19:10:01.587Z",
+      "thumbnail": "/thumbnails/portfolio-hub-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
       "featured": true,
       "sortOrder": 30,
       "source": "manual",
