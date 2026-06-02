@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-02T10:46:50.767Z",
+  "updatedAt": "2026-06-02T10:46:52.264Z",
   "sections": [
     {
       "id": "dentivis",
@@ -173,7 +173,7 @@
       "description": "Nástroj na řízení vlastních projektů",
       "tags": [],
       "visibility": "public",
-      "thumbnail": "/thumbnails/osobni-back-log-manual.webp",
+      "thumbnail": "/thumbnails/osobni-backlog-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
       "thumbnailGeneratedAt": null,
