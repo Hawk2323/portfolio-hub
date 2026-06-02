@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-02T10:46:52.264Z",
+  "updatedAt": "2026-06-02T10:47:46.285Z",
   "sections": [
     {
       "id": "dentivis",
@@ -120,25 +120,6 @@
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
       "thumbnailGeneratedAt": "2026-06-02T10:46:05.096Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": ""
-    },
-    {
-      "id": "osobni-back-log",
-      "title": "Osobní back-log",
-      "slug": "osobni-back-log",
-      "section": "private",
-      "status": "wip",
-      "url": "https://pact-richards-projects-5347801f.vercel.app/",
-      "description": "Nástroj na řízení vlastních projektů",
-      "tags": [],
-      "visibility": "public",
-      "thumbnail": "/thumbnails/osobni-back-log-manual.webp",
-      "thumbnailMode": "manual",
-      "thumbnailLocked": true,
-      "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
