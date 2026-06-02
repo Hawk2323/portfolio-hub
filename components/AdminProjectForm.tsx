@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import type { PortfolioProject, PortfolioSection, ProjectStatus, ProjectVisibility, ThumbnailMode, ProjectSource } from "@/lib/schema";
 import { slugify } from "@/lib/slug";
@@ -12,6 +12,7 @@ type Props = {
   sections: PortfolioSection[];
   onChange: (project: DraftProject) => void;
   onSave: () => void;
+  onSaveUploaded: (project: DraftProject) => void;
   onCancel: () => void;
 };
 
@@ -44,8 +45,10 @@ export function createEmptyProject(section: string): DraftProject {
   };
 }
 
-export default function AdminProjectForm({ project, sections, onChange, onSave, onCancel }: Props) {
+export default function AdminProjectForm({ project, sections, onChange, onSave, onSaveUploaded, onCancel }: Props) {
   const tagsValue = useMemo(() => project.tags.join(", "), [project.tags]);
+  const [uploadMessage, setUploadMessage] = useState("");
+  const [uploading, setUploading] = useState(false);
 
   function update<K extends keyof DraftProject>(key: K, value: DraftProject[K]) {
     onChange({ ...project, [key]: value });
@@ -58,6 +61,40 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
       return;
     }
     update("title", title);
+  }
+
+  async function uploadManualThumbnail(file: File | null) {
+    if (!file) return;
+
+    setUploading(true);
+    setUploadMessage("");
+
+    const form = new FormData();
+    form.append("file", file);
+    form.append("slug", project.slug || slugify(project.title));
+
+    const response = await fetch("/api/admin/upload-thumbnail", {
+      method: "POST",
+      body: form
+    });
+    const body = await response.json();
+    setUploading(false);
+
+    if (!response.ok) {
+      setUploadMessage(body.error ?? "Thumbnail upload failed.");
+      return;
+    }
+
+    const nextProject = {
+      ...project,
+      thumbnail: body.thumbnail,
+      thumbnailMode: "manual" as const,
+      thumbnailLocked: true,
+      thumbnailGeneratedAt: null
+    };
+    onChange(nextProject);
+    onSaveUploaded(nextProject);
+    setUploadMessage("Manual thumbnail uploaded and saved.");
   }
 
   return (
@@ -104,6 +141,16 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
         </Field>
         <Field label="Thumbnail path / URL">
           <input className="admin-input" value={project.thumbnail} onChange={(event) => update("thumbnail", event.target.value)} />
+        </Field>
+        <Field label="Upload manual thumbnail">
+          <input
+            className="admin-input"
+            type="file"
+            accept="image/png,image/jpeg,image/webp"
+            disabled={uploading}
+            onChange={(event) => void uploadManualThumbnail(event.target.files?.[0] ?? null)}
+          />
+          {uploadMessage ? <span className="text-xs font-medium text-slate-500">{uploadMessage}</span> : null}
         </Field>
         <Field label="Sort order">
           <input className="admin-input" type="number" value={project.sortOrder} onChange={(event) => update("sortOrder", Number(event.target.value))} />

@@ -73,3 +73,44 @@ export async function writeProjectsToGitHub(data: ProjectsFile, sha?: string) {
 
   return parsed;
 }
+
+export async function writeBinaryFileToGitHub(repoPath: string, content: Buffer, message: string) {
+  const config = githubConfig();
+  if (!config.token) throw new Error("Missing GITHUB_TOKEN.");
+
+  const existingSha = await readGitHubContentSha(repoPath);
+  const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${repoPath}`;
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: headers(config.token),
+    body: JSON.stringify({
+      message,
+      content: content.toString("base64"),
+      sha: existingSha,
+      branch: config.branch
+    })
+  });
+
+  if (response.status === 409) {
+    throw new Error(`GitHub rejected the upload because ${repoPath} changed upstream. Refresh and try again.`);
+  }
+
+  if (!response.ok) {
+    throw new Error(`GitHub upload failed with ${response.status}.`);
+  }
+}
+
+async function readGitHubContentSha(repoPath: string) {
+  const config = githubConfig();
+  if (!config.token) throw new Error("Missing GITHUB_TOKEN.");
+
+  const url = `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${repoPath}?ref=${config.branch}`;
+  const response = await fetch(url, { headers: headers(config.token), cache: "no-store" });
+  if (response.status === 404) return undefined;
+  if (!response.ok) {
+    throw new Error(`GitHub read failed with ${response.status}.`);
+  }
+
+  const body = (await response.json()) as { sha?: string };
+  return body.sha;
+}

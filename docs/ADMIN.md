@@ -23,3 +23,5 @@ In production, writes are rejected unless GitHub write configuration is present.
 ## Admin actions
 
 The admin can add, edit, archive, delete, reorder, publish, hide, and retag projects. New projects default to `visibility = private`.
+
+Manual thumbnail uploads accept JPEG, PNG, and WebP images up to 6 MB. The server converts the upload to a `1200 x 760` WebP file, stores it in `public/thumbnails`, and saves the project with `thumbnailMode = manual` and `thumbnailLocked = true` so automated thumbnail generation will not overwrite it.

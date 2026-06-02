@@ -34,6 +34,7 @@ Admin routes:
 - `GET /api/admin/projects`
 - `PUT /api/admin/projects`
 - `POST /api/admin/regenerate-thumbnail`
+- `POST /api/admin/upload-thumbnail`
 
 In production, writes require GitHub Contents API configuration. Tokens are read only on the server and must never be committed.
 
@@ -47,6 +48,8 @@ Skipped automatically:
 - `thumbnailMode = manual`
 
 If a URL fails, the script creates a fallback thumbnail and sets `thumbnailMode = fallback`.
+
+Admins can also upload a manual thumbnail. The upload is converted to `1200 x 760` WebP, saved under `public/thumbnails`, and the project is saved with `thumbnailMode = manual` and `thumbnailLocked = true`.
 
 ## Deployment
 

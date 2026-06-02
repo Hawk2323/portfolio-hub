@@ -165,6 +165,7 @@ export default function AdminProjectList() {
           sections={data.sections}
           onChange={setEditing}
           onSave={() => upsertProject(editing)}
+          onSaveUploaded={upsertProject}
           onCancel={() => setEditing(null)}
         />
       ) : null}
