@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-02T19:33:10.848Z",
+  "updatedAt": "2026-06-03T15:38:42.365Z",
   "sections": [
     {
       "id": "dentivis",
@@ -177,6 +177,25 @@
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
       "thumbnailGeneratedAt": "2026-06-02T19:33:10.824Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "tv-cekarna",
+      "title": "TV Čekárna",
+      "slug": "tv-cekarna",
+      "section": "dentivis",
+      "status": "live",
+      "url": "https://pact-pgbz.vercel.app/Waiting-Screen-Demo/",
+      "description": "TV obrazovka, která slouží jako informační panel v čekárně Dentivis. Včetně admin rozhraní, kde si uživatel řídí, co na obrazovce je.",
+      "tags": [],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
