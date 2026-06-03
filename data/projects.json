@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-03T15:40:08.870Z",
+  "updatedAt": "2026-06-03T15:44:37.774Z",
   "sections": [
     {
       "id": "dentivis",
@@ -196,6 +196,25 @@
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
       "thumbnailGeneratedAt": "2026-06-03T15:40:08.850Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "katalog-elektroniky",
+      "title": "Katalog elektroniky",
+      "slug": "katalog-elektroniky",
+      "section": "private",
+      "status": "wip",
+      "url": "https://equipment-ashen.vercel.app/",
+      "description": "Přehled elektronických zařízení ve všech našich rodinných domácnostech. Stačí vyfotit štítek a ChatGPT + GitHub se postará o zjištění všech paramerů a zařazení do katalogu.",
+      "tags": [],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
