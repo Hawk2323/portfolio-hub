@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-04T20:22:27.306Z",
+  "updatedAt": "2026-06-04T20:22:36.574Z",
   "sections": [
     {
       "id": "dentivis",
@@ -196,7 +196,7 @@
         "concept",
         "audio"
       ],
-      "visibility": "private",
+      "visibility": "public",
       "thumbnail": "/thumbnails/diktafon-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
