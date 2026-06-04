@@ -32,7 +32,8 @@ export function createEmptyProject(section: string): DraftProject {
     status: "wip",
     url: "https://example.com",
     description: "Short project description.",
-    tags: [],
+    technologies: [],
+    tools: ["AI"],
     visibility: "private",
     thumbnail: "/thumbnails/_fallback.webp",
     thumbnailMode: "auto",
@@ -46,7 +47,8 @@ export function createEmptyProject(section: string): DraftProject {
 }
 
 export default function AdminProjectForm({ project, sections, onChange, onSave, onSaveUploaded, onCancel }: Props) {
-  const tagsValue = useMemo(() => project.tags.join(", "), [project.tags]);
+  const technologiesValue = useMemo(() => project.technologies.join(", "), [project.technologies]);
+  const toolsValue = useMemo(() => project.tools.join(", "), [project.tools]);
   const [uploadMessage, setUploadMessage] = useState("");
   const [uploading, setUploading] = useState(false);
 
@@ -155,11 +157,18 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
         <Field label="Sort order">
           <input className="admin-input" type="number" value={project.sortOrder} onChange={(event) => update("sortOrder", Number(event.target.value))} />
         </Field>
-        <Field label="Tags">
+        <Field label="Technologies">
           <input
             className="admin-input"
-            value={tagsValue}
-            onChange={(event) => update("tags", event.target.value.split(",").map((tag) => tag.trim()).filter(Boolean))}
+            value={technologiesValue}
+            onChange={(event) => update("technologies", splitPills(event.target.value))}
+          />
+        </Field>
+        <Field label="Tools">
+          <input
+            className="admin-input"
+            value={toolsValue}
+            onChange={(event) => update("tools", splitPills(event.target.value))}
           />
         </Field>
         <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
@@ -183,6 +192,10 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
       </div>
     </div>
   );
+}
+
+function splitPills(value: string) {
+  return value.split(",").map((item) => item.trim()).filter(Boolean);
 }
 
 function Field({ label, children }: { label: string; children: ReactNode }) {

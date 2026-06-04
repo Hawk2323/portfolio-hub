@@ -18,7 +18,8 @@ The source of truth is `data/projects.json`.
 - `status`: `idea`, `wip`, `live`, `paused`, or `archived`.
 - `url`: external project URL.
 - `description`: public short description.
-- `tags`: public tags.
+- `technologies`: public technology pills shown below the thumbnail.
+- `tools`: public creation-tool pills shown below the technology pills.
 - `visibility`: `public`, `unlisted`, or `private`.
 - `thumbnail`: path or URL shown on cards.
 - `thumbnailMode`: `auto`, `manual`, or `fallback`.

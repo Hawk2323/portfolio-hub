@@ -33,7 +33,9 @@ Use these defaults only when the user has not specified a value:
   "thumbnailMode": "auto",
   "thumbnailLocked": false,
   "status": "wip",
-  "source": "pact"
+  "source": "pact",
+  "technologies": [],
+  "tools": ["AI"]
 }
 ```
 
@@ -49,7 +51,8 @@ Use these defaults only when the user has not specified a value:
     "status": "wip",
     "url": "https://example.com",
     "description": "Short project description.",
-    "tags": ["Vercel"],
+    "technologies": ["Vercel"],
+    "tools": ["AI"],
     "visibility": "private",
     "thumbnailMode": "auto",
     "thumbnailLocked": false,
