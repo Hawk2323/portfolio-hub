@@ -9,6 +9,7 @@
     "lint": "next lint",
     "validate": "node scripts/validate-projects.mjs",
     "thumbnails": "node scripts/generate-thumbnails.mjs",
+    "snapshot": "node scripts/build-snapshot.mjs",
     "seed": "node scripts/seed-projects.mjs"
   },
   "dependencies": {

@@ -6,9 +6,10 @@ import { projectsFileSchema, type ProjectsFile } from "./schema";
 import { publicProjectsOnly } from "./visibility";
 
 export const DATA_PATH = path.join(process.cwd(), "data", "projects.json");
+const isStaticSnapshot = process.env.NEXT_PUBLIC_STATIC_SNAPSHOT === "true";
 
 export const getProjectsFile = cache(async (): Promise<ProjectsFile> => {
-  if (hasGitHubWriteConfig()) {
+  if (!isStaticSnapshot && hasGitHubWriteConfig()) {
     const { data } = await readProjectsFromGitHub();
     return data;
   }

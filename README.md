@@ -77,6 +77,16 @@ vercel --prod --yes
 
 See `docs/DEPLOYMENT.md` for non-interactive `VERCEL_TOKEN` deployment.
 
+## Static snapshot
+
+To create a presentation-only static snapshot for a CDN, run:
+
+```bash
+npm run snapshot
+```
+
+The exported files are written to `out/`. Snapshot mode uses the checked-in `data/projects.json` and `public/thumbnails`, hides the admin link, and does not include working admin/API behavior.
+
 ## Search indexing
 
 `NEXT_PUBLIC_ALLOW_INDEXING=false` is the default. The app emits `noindex,nofollow`, and `public/robots.txt` disallows all crawlers.
