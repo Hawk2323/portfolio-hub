@@ -4,12 +4,14 @@ export const statusSchema = z.enum(["idea", "wip", "live", "paused", "archived"]
 export const visibilitySchema = z.enum(["public", "unlisted", "private"]);
 export const thumbnailModeSchema = z.enum(["auto", "manual", "fallback"]);
 export const sourceSchema = z.enum(["manual", "pact", "external"]);
+export const sectionLinkModeSchema = z.enum(["standard", "vpn"]);
 
 export const sectionSchema = z.object({
   id: z.string().min(1).regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
   description: z.string().default(""),
-  sortOrder: z.number().int().default(100)
+  sortOrder: z.number().int().default(100),
+  linkMode: sectionLinkModeSchema.default("standard")
 });
 
 export const projectSchema = z.object({
@@ -67,6 +69,7 @@ export type ProjectStatus = z.infer<typeof statusSchema>;
 export type ProjectVisibility = z.infer<typeof visibilitySchema>;
 export type ThumbnailMode = z.infer<typeof thumbnailModeSchema>;
 export type ProjectSource = z.infer<typeof sourceSchema>;
+export type SectionLinkMode = z.infer<typeof sectionLinkModeSchema>;
 export type PortfolioSection = z.infer<typeof sectionSchema>;
 export type PortfolioProject = z.infer<typeof projectSchema>;
 export type ProjectsFile = z.infer<typeof projectsFileSchema>;

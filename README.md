@@ -24,6 +24,12 @@ npm run thumbnails
 
 New admin-created projects default to `private`. Set `visibility` to `public` only for curated items that are safe to share.
 
+## Sections
+
+Sections are managed in `/admin`. Their `sortOrder` controls the tab order and the public grouping order. Projects are shown under their section heading on the public page.
+
+The `CSAS` section uses `linkMode = vpn`. On the public Vercel site, CSAS cards open a large thumbnail preview instead of following the intranet URL. Static snapshots and environments with `NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS=true` allow those links to open normally.
+
 ## Admin
 
 Admin routes:
@@ -63,6 +69,8 @@ GITHUB_OWNER=Hawk2323
 GITHUB_REPO=portfolio-hub
 GITHUB_BRANCH=main
 NEXT_PUBLIC_ALLOW_INDEXING=false
+# Optional, only for internal/VPN deployments:
+NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS=true
 ```
 
 Run:
@@ -85,7 +93,7 @@ To create a presentation-only static snapshot for a CDN, run:
 npm run snapshot
 ```
 
-The exported files are written to `out/`. Snapshot mode uses the checked-in `data/projects.json` and `public/thumbnails`, hides the admin link, and does not include working admin/API behavior.
+The exported files are written to `out/` and `portfolio-hub-snapshot.zip`. Snapshot mode uses the checked-in `data/projects.json` and `public/thumbnails`, hides the admin link, enables restricted/VPN links, and does not include working admin/API behavior.
 
 ## Search indexing
 

@@ -4,6 +4,7 @@ const statusSchema = z.enum(["idea", "wip", "live", "paused", "archived"]);
 const visibilitySchema = z.enum(["public", "unlisted", "private"]);
 const thumbnailModeSchema = z.enum(["auto", "manual", "fallback"]);
 const sourceSchema = z.enum(["manual", "pact", "external"]);
+const sectionLinkModeSchema = z.enum(["standard", "vpn"]);
 
 export const projectSchema = z.object({
   id: z.string().min(1).regex(/^[a-z0-9-]+$/),
@@ -32,7 +33,8 @@ export const projectsFileSchema = z.object({
     id: z.string().min(1).regex(/^[a-z0-9-]+$/),
     title: z.string().min(1),
     description: z.string().default(""),
-    sortOrder: z.number().int().default(100)
+    sortOrder: z.number().int().default(100),
+    linkMode: sectionLinkModeSchema.default("standard")
   })).min(1),
   projects: z.array(projectSchema)
 }).superRefine((data, ctx) => {

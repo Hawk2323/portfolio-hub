@@ -14,9 +14,13 @@ GITHUB_OWNER=Hawk2323
 GITHUB_REPO=portfolio-hub
 GITHUB_BRANCH=main
 NEXT_PUBLIC_ALLOW_INDEXING=false
+# Optional, only for internal/VPN deployments:
+NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS=true
 ```
 
 `GITHUB_TOKEN` should have repository contents read/write access only for `Hawk2323/portfolio-hub`.
+
+Keep `NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS` unset on the public Vercel deployment when CSAS/intranet projects should open as large thumbnail previews. Set it to `true` only for an internal/VPN deployment where direct intranet links should be active.
 
 ## Manual deployment
 
@@ -54,6 +58,6 @@ npm run validate
 npm run snapshot
 ```
 
-Upload the contents of `out/` to the CDN. The snapshot is read-only: it uses the checked-in `data/projects.json` and `public/thumbnails`, hides the public admin link, and does not provide working admin/API routes. Make all content and thumbnail changes in the Vercel/GitHub-backed version first, then build a fresh snapshot.
+Upload the contents of `out/` to the CDN, or use `portfolio-hub-snapshot.zip`. The snapshot is read-only: it uses the checked-in `data/projects.json` and `public/thumbnails`, hides the public admin link, enables restricted/VPN links, and does not provide working admin/API routes. Make all content and thumbnail changes in the Vercel/GitHub-backed version first, then build a fresh snapshot.
 
 On Windows, stop `npm run dev` before building the snapshot. The script temporarily moves `app/admin` and `app/api` out of the build so static export contains only the public presentation.

@@ -6,13 +6,22 @@
       "id": "dentivis",
       "title": "Dentivis",
       "description": "Projects around the Dentivis practice.",
-      "sortOrder": 10
+      "sortOrder": 10,
+      "linkMode": "standard"
+    },
+    {
+      "id": "csas",
+      "title": "CSAS",
+      "description": "Internal presentation projects with VPN/intranet links.",
+      "sortOrder": 20,
+      "linkMode": "vpn"
     },
     {
       "id": "private",
       "title": "Private",
       "description": "Private and experimental projects curated for sharing when ready.",
-      "sortOrder": 20
+      "sortOrder": 30,
+      "linkMode": "standard"
     }
   ],
   "projects": [

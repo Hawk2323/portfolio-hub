@@ -2,6 +2,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 import { getPublicPortfolio, sortProjects, sortSections } from "@/lib/projects";
 
 const isStaticSnapshot = process.env.NEXT_PUBLIC_STATIC_SNAPSHOT === "true";
+const allowRestrictedLinks = isStaticSnapshot || process.env.NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS === "true";
 
 export default async function Home() {
   const portfolio = await getPublicPortfolio();
@@ -16,7 +17,7 @@ export default async function Home() {
         </h1>
       </header>
 
-      <ProjectGrid sections={sections} projects={projects} />
+      <ProjectGrid sections={sections} projects={projects} allowRestrictedLinks={allowRestrictedLinks} />
 
       {!isStaticSnapshot ? (
         <footer className="mt-auto flex justify-end pt-8">

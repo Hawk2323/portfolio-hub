@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import type { ProjectsFile, PortfolioProject } from "@/lib/schema";
+import type { ProjectsFile, PortfolioProject, PortfolioSection, SectionLinkMode } from "@/lib/schema";
+import { slugify } from "@/lib/slug";
 import AdminProjectForm, { createEmptyProject } from "./AdminProjectForm";
 import StatusBadge from "./StatusBadge";
+
+const linkModes: SectionLinkMode[] = ["standard", "vpn"];
 
 export default function AdminProjectList() {
   const [password, setPassword] = useState("");
@@ -13,6 +16,7 @@ export default function AdminProjectList() {
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
 
+  const sortedSections = useMemo(() => sortSections(data?.sections ?? []), [data]);
   const sectionById = useMemo(() => new Map(data?.sections.map((section) => [section.id, section]) ?? []), [data]);
 
   useEffect(() => {
@@ -86,6 +90,46 @@ export default function AdminProjectList() {
     void persist({ ...data, projects });
   }
 
+  function updateSection(previousId: string, section: PortfolioSection) {
+    if (!data) return;
+    const nextId = slugify(section.id);
+    const nextSection = { ...section, id: nextId };
+    setData({
+      ...data,
+      sections: data.sections.map((item) => (item.id === previousId ? nextSection : item)),
+      projects: previousId === nextId
+        ? data.projects
+        : data.projects.map((project) => (project.section === previousId ? { ...project, section: nextId } : project))
+    });
+  }
+
+  function addSection() {
+    if (!data) return;
+    const id = uniqueSectionId(data.sections, "new-section");
+    setData({
+      ...data,
+      sections: [
+        ...data.sections,
+        {
+          id,
+          title: "New section",
+          description: "",
+          sortOrder: nextSectionOrder(data.sections),
+          linkMode: "standard"
+        }
+      ]
+    });
+  }
+
+  function deleteSection(section: PortfolioSection) {
+    if (!data) return;
+    if (data.projects.some((project) => project.section === section.id)) {
+      setMessage(`Section "${section.title}" still contains projects.`);
+      return;
+    }
+    setData({ ...data, sections: data.sections.filter((item) => item.id !== section.id) });
+  }
+
   function archiveProject(project: PortfolioProject) {
     if (!data) return;
     void persist({
@@ -143,21 +187,88 @@ export default function AdminProjectList() {
     return <p className="text-slate-600">Loading projects...</p>;
   }
 
-  const sortedProjects = [...data.projects].sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title));
+  const sectionOrder = new Map(sortedSections.map((item, index) => [item.id, index]));
+  const sortedProjects = [...data.projects].sort((a, b) =>
+    (sectionOrder.get(a.section) ?? 999) - (sectionOrder.get(b.section) ?? 999) ||
+    a.sortOrder - b.sortOrder ||
+    a.title.localeCompare(b.title)
+  );
 
   return (
     <section className="grid gap-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap gap-3">
-          <button type="button" className="admin-button-primary" onClick={() => setEditing(createEmptyProject(data.sections[0]?.id ?? "private"))}>
+          <button type="button" className="admin-button-primary" onClick={() => setEditing(createEmptyProject(sortedSections[0]?.id ?? "private"))}>
             Add project
           </button>
+          <button type="button" className="admin-button-secondary" onClick={addSection}>Add section</button>
           <button type="button" className="admin-button-secondary" onClick={loadProjects}>Refresh</button>
         </div>
         <button type="button" className="admin-button-secondary" onClick={logout}>Logout</button>
       </div>
 
       {message ? <p className="rounded-lg bg-white px-4 py-3 text-sm text-slate-700 ring-1 ring-slate-200">{message}</p> : null}
+
+      <div className="rounded-lg bg-white p-5 shadow-soft ring-1 ring-slate-200">
+        <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-xl font-semibold text-ink">Sections</h2>
+          <button type="button" className="admin-button-primary" onClick={() => persist(data)} disabled={busy}>
+            Save sections
+          </button>
+        </div>
+        <div className="grid gap-3">
+          {sortedSections.map((section) => (
+            <div key={section.id} className="grid gap-3 rounded-lg border border-slate-200 p-3 lg:grid-cols-[0.8fr_1fr_1.4fr_0.7fr_0.8fr_auto] lg:items-end">
+              <label className="grid gap-1 text-sm font-medium text-slate-700">
+                ID
+                <input
+                  className="admin-input"
+                  value={section.id}
+                  onChange={(event) => updateSection(section.id, { ...section, id: event.target.value })}
+                />
+              </label>
+              <label className="grid gap-1 text-sm font-medium text-slate-700">
+                Title
+                <input
+                  className="admin-input"
+                  value={section.title}
+                  onChange={(event) => updateSection(section.id, { ...section, title: event.target.value })}
+                />
+              </label>
+              <label className="grid gap-1 text-sm font-medium text-slate-700">
+                Description
+                <input
+                  className="admin-input"
+                  value={section.description}
+                  onChange={(event) => updateSection(section.id, { ...section, description: event.target.value })}
+                />
+              </label>
+              <label className="grid gap-1 text-sm font-medium text-slate-700">
+                Order
+                <input
+                  className="admin-input"
+                  type="number"
+                  value={section.sortOrder}
+                  onChange={(event) => updateSection(section.id, { ...section, sortOrder: Number(event.target.value) })}
+                />
+              </label>
+              <label className="grid gap-1 text-sm font-medium text-slate-700">
+                Links
+                <select
+                  className="admin-input"
+                  value={section.linkMode}
+                  onChange={(event) => updateSection(section.id, { ...section, linkMode: event.target.value as SectionLinkMode })}
+                >
+                  {linkModes.map((mode) => <option key={mode} value={mode}>{mode}</option>)}
+                </select>
+              </label>
+              <button type="button" className="admin-button-danger" onClick={() => deleteSection(section)} disabled={busy}>
+                Delete
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
 
       {editing ? (
         <AdminProjectForm
@@ -198,4 +309,24 @@ export default function AdminProjectList() {
       </div>
     </section>
   );
+}
+
+function sortSections(sections: PortfolioSection[]) {
+  return [...sections].sort((a, b) => a.sortOrder - b.sortOrder || a.title.localeCompare(b.title));
+}
+
+function uniqueSectionId(sections: PortfolioSection[], base: string) {
+  const ids = new Set(sections.map((section) => section.id));
+  let id = base;
+  let index = 2;
+  while (ids.has(id)) {
+    id = `${base}-${index}`;
+    index += 1;
+  }
+  return id;
+}
+
+function nextSectionOrder(sections: PortfolioSection[]) {
+  if (sections.length === 0) return 10;
+  return Math.max(...sections.map((section) => section.sortOrder)) + 10;
 }
