@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-04T21:13:59.617Z",
+  "updatedAt": "2026-06-04T21:18:45.551Z",
   "sections": [
     {
       "id": "dentivis",
@@ -33,15 +33,6 @@
       "status": "live",
       "url": "https://example.com",
       "description": "Waiting room screen concept for Dentivis signage and patient communication.",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-waiting-screen.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:33:51.116Z",
-      "featured": true,
-      "sortOrder": 10,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "HTML/CSS",
         "JavaScript",
@@ -50,7 +41,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/dentivis-waiting-screen.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:16.755Z",
+      "featured": true,
+      "sortOrder": 10,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "dentivis-web",
@@ -60,15 +60,6 @@
       "status": "live",
       "url": "https://www.dentivis.cz/",
       "description": "Webové stránky ordinací Dentivis",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-web.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:33:57.436Z",
-      "featured": false,
-      "sortOrder": 20,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "web",
         "SEO",
@@ -76,7 +67,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/dentivis-web.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:23.065Z",
+      "featured": false,
+      "sortOrder": 20,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "mycka",
@@ -86,15 +86,6 @@
       "status": "live",
       "url": "https://dishwasher.onrender.com/",
       "description": "Aplikace pro záznam, kdo vyndal naposledy myčku a kdo je tedy na řadě.",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/mycka.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:34:00.327Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "web app",
         "Render",
@@ -102,7 +93,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/mycka.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:24.978Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "dentivis-graficky-manual",
@@ -112,15 +112,6 @@
       "status": "wip",
       "url": "https://dentivis-manual.vercel.app/",
       "description": "Grafický manuál - loga, písma, tvorba vizitek",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-graficky-manual.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:34:02.205Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "Next.js",
         "React",
@@ -129,7 +120,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/dentivis-graficky-manual.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:26.740Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "osobni-backlog",
@@ -139,15 +139,6 @@
       "status": "wip",
       "url": "https://pact-richards-projects-5347801f.vercel.app/",
       "description": "Nástroj na řízení vlastních projektů",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/osobni-backlog-manual.webp",
-      "thumbnailMode": "manual",
-      "thumbnailLocked": true,
-      "thumbnailGeneratedAt": null,
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "Next.js",
         "React",
@@ -156,7 +147,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/osobni-backlog-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "vocabulary",
@@ -166,15 +166,6 @@
       "status": "live",
       "url": "https://vocabulary-1-32xc.onrender.com/",
       "description": "Aplikace na výuku a testování slovíček, které se uploadují podle toho, jaké se děti učí.",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/vocabulary.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:34:06.243Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "web app",
         "Render",
@@ -182,7 +173,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/vocabulary.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:40.401Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "tv-cekarna",
@@ -192,15 +192,6 @@
       "status": "live",
       "url": "https://pact-pgbz.vercel.app/Waiting-Screen-Demo/",
       "description": "TV obrazovka, která slouží jako informační panel v čekárně Dentivis. Včetně admin rozhraní, kde si uživatel řídí, co na obrazovce je.",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/tv-cekarna.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:34:09.038Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "HTML/CSS",
         "JavaScript",
@@ -210,7 +201,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/tv-cekarna.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:43.086Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "katalog-elektroniky",
@@ -220,15 +220,6 @@
       "status": "wip",
       "url": "https://equipment-ashen.vercel.app/",
       "description": "Přehled elektronických zařízení ve všech našich rodinných domácnostech. Stačí vyfotit štítek a ChatGPT + GitHub se postará o zjištění všech paramerů a zařazení do katalogu.",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/katalog-elektroniky.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T20:34:11.392Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "Next.js",
         "React",
@@ -238,7 +229,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/katalog-elektroniky.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
+      "thumbnailGeneratedAt": "2026-06-04T21:18:45.532Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     },
     {
       "id": "diktafon",
@@ -248,6 +248,14 @@
       "status": "idea",
       "url": "https://pact-richards-projects-5347801f.vercel.app/diktafon",
       "description": "Safe placeholder for a private dictation workflow concept.",
+      "technologies": [
+        "audio",
+        "workflow",
+        "prototype"
+      ],
+      "tools": [
+        "AI"
+      ],
       "visibility": "public",
       "thumbnail": "/thumbnails/diktafon-manual.webp",
       "thumbnailMode": "manual",
@@ -256,15 +264,7 @@
       "featured": false,
       "sortOrder": 40,
       "source": "manual",
-      "notesPrivate": "",
-      "technologies": [
-        "audio",
-        "workflow",
-        "prototype"
-      ],
-      "tools": [
-        "AI"
-      ]
+      "notesPrivate": ""
     },
     {
       "id": "fte-dashboard",
@@ -274,15 +274,6 @@
       "status": "live",
       "url": "https://cdn.csin.cz/personal/ricervenka/pracovni_pozice",
       "description": "Počty FTE přes divize, útvary a týmy podle profesí.",
-      "visibility": "public",
-      "thumbnail": "/thumbnails/fte-dashboard-manual.webp",
-      "thumbnailMode": "manual",
-      "thumbnailLocked": true,
-      "thumbnailGeneratedAt": null,
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": "",
       "technologies": [
         "dashboard",
         "data visualization",
@@ -291,7 +282,16 @@
       ],
       "tools": [
         "AI"
-      ]
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/fte-dashboard-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
     }
   ]
 }
