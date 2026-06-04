@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-04T20:27:13.081Z",
+  "updatedAt": "2026-06-04T20:32:58.980Z",
   "sections": [
     {
       "id": "dentivis",
@@ -14,7 +14,7 @@
       "title": "CSAS",
       "description": "Internal presentation projects with VPN/intranet links.",
       "sortOrder": 20,
-      "linkMode": "vpn"
+      "linkMode": "standard"
     },
     {
       "id": "private",
