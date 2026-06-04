@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-04T20:22:05.386Z",
+  "updatedAt": "2026-06-04T20:22:27.306Z",
   "sections": [
     {
       "id": "dentivis",
@@ -67,28 +67,6 @@
       "thumbnailGeneratedAt": "2026-06-04T16:22:32.361Z",
       "featured": false,
       "sortOrder": 20,
-      "source": "manual",
-      "notesPrivate": ""
-    },
-    {
-      "id": "dictaphone-concept",
-      "title": "Dictaphone Concept",
-      "slug": "dictaphone-concept",
-      "section": "private",
-      "status": "idea",
-      "url": "https://example.com",
-      "description": "Safe placeholder for a private dictation workflow concept.",
-      "tags": [
-        "concept",
-        "audio"
-      ],
-      "visibility": "private",
-      "thumbnail": "/thumbnails/dictaphone-concept.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-04T16:22:33.912Z",
-      "featured": false,
-      "sortOrder": 40,
       "source": "manual",
       "notesPrivate": ""
     },
