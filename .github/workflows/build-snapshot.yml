@@ -40,7 +40,7 @@ jobs:
 
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release upload "$tag" "$zip_file" --clobber
-            gh release edit "$tag" --title "Latest portfolio snapshot" --notes "$notes"
+            gh release edit "$tag" --target "$GITHUB_SHA" --title "Latest portfolio snapshot" --notes "$notes"
           else
             gh release create "$tag" "$zip_file" --title "Latest portfolio snapshot" --notes "$notes" --target "$GITHUB_SHA"
           fi
