@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-04T16:22:58.198Z",
+  "updatedAt": "2026-06-04T20:20:18.269Z",
   "sections": [
     {
       "id": "dentivis",
@@ -67,29 +67,6 @@
       "thumbnailGeneratedAt": "2026-06-04T16:22:32.361Z",
       "featured": false,
       "sortOrder": 20,
-      "source": "manual",
-      "notesPrivate": ""
-    },
-    {
-      "id": "portfolio-hub",
-      "title": "Portfolio Hub",
-      "slug": "portfolio-hub",
-      "section": "private",
-      "status": "wip",
-      "url": "https://example.com",
-      "description": "A clean public project index with protected editing and generated thumbnails.",
-      "tags": [
-        "Next.js",
-        "portfolio",
-        "automation"
-      ],
-      "visibility": "public",
-      "thumbnail": "/thumbnails/portfolio-hub-manual.webp",
-      "thumbnailMode": "manual",
-      "thumbnailLocked": true,
-      "thumbnailGeneratedAt": null,
-      "featured": true,
-      "sortOrder": 30,
       "source": "manual",
       "notesPrivate": ""
     },
