@@ -1,0 +1,46 @@
+name: Build snapshot
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run validate
+      - run: npm run snapshot
+      - name: Upload workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-hub-snapshot
+          path: portfolio-hub-snapshot.zip
+          retention-days: 30
+      - name: Publish latest snapshot release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="snapshot-latest"
+          zip_file="portfolio-hub-snapshot.zip"
+          notes="Static snapshot generated from ${GITHUB_SHA}."
+
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$zip_file" --clobber
+            gh release edit "$tag" --title "Latest portfolio snapshot" --notes "$notes"
+          else
+            gh release create "$tag" "$zip_file" --title "Latest portfolio snapshot" --notes "$notes" --target "$GITHUB_SHA"
+          fi
