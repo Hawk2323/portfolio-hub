@@ -1,6 +1,7 @@
 .next/
 node_modules/
 out/
+portfolio-hub-snapshot.zip
 dist/
 .env
 .env*.local
