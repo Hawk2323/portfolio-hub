@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-04T21:18:45.551Z",
+  "updatedAt": "2026-06-05T21:15:15.482Z",
   "sections": [
     {
       "id": "dentivis",
@@ -287,6 +287,28 @@
       "thumbnail": "/thumbnails/fte-dashboard-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "prehled-dochazky",
+      "title": "Přehled docházky",
+      "slug": "prehled-dochazky",
+      "section": "csas",
+      "status": "wip",
+      "url": "https://cdn.csin.cz/personal/ricervenka/attendance/",
+      "description": "Přehled, kdo je kdy v kanceláři a kdo je off nebo na home office",
+      "technologies": [],
+      "tools": [
+        "AI"
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
       "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
