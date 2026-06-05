@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-05T21:36:50.323Z",
+  "updatedAt": "2026-06-05T21:37:03.962Z",
   "sections": [
     {
       "id": "dentivis",
@@ -298,7 +298,7 @@
       "title": "Přehled docházky",
       "slug": "prehled-dochazky",
       "section": "csas",
-      "status": "wip",
+      "status": "live",
       "url": "https://cdn.csin.cz/personal/ricervenka/attendance/",
       "description": "Přehled, kdo je kdy v kanceláři a kdo je off nebo na home office",
       "technologies": [],
