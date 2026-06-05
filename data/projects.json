@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-05T21:38:20.870Z",
+  "updatedAt": "2026-06-05T22:51:04.407Z",
   "sections": [
     {
       "id": "dentivis",
@@ -25,33 +25,6 @@
     }
   ],
   "projects": [
-    {
-      "id": "dentivis-waiting-screen",
-      "title": "Dentivis Waiting Screen",
-      "slug": "dentivis-waiting-screen",
-      "section": "dentivis",
-      "status": "live",
-      "url": "https://example.com",
-      "description": "Waiting room screen concept for Dentivis signage and patient communication.",
-      "technologies": [
-        "HTML/CSS",
-        "JavaScript",
-        "Vercel",
-        "signage"
-      ],
-      "tools": [
-        "AI"
-      ],
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-waiting-screen.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-05T21:37:55.479Z",
-      "featured": true,
-      "sortOrder": 10,
-      "source": "manual",
-      "notesPrivate": ""
-    },
     {
       "id": "dentivis-web",
       "title": "Dentivis Web",
