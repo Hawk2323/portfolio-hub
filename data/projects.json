@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-08T12:43:10.968Z",
+  "updatedAt": "2026-06-08T12:43:50.895Z",
   "sections": [
     {
       "id": "dentivis",
@@ -282,6 +282,28 @@
       "thumbnail": "/thumbnails/prehled-dochazky-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "fte-matrix",
+      "title": "FTE Matrix",
+      "slug": "fte-matrix",
+      "section": "dentivis",
+      "status": "wip",
+      "url": "https://example.com",
+      "description": "Short project description.",
+      "technologies": [],
+      "tools": [
+        "AI"
+      ],
+      "visibility": "private",
+      "thumbnail": "/thumbnails/_fallback.webp",
+      "thumbnailMode": "auto",
+      "thumbnailLocked": false,
       "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
