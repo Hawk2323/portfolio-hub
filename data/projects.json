@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-08T13:15:14.672Z",
+  "updatedAt": "2026-06-08T13:15:34.528Z",
   "sections": [
     {
       "id": "dentivis",
@@ -292,7 +292,7 @@
       "id": "fte-matrix",
       "title": "FTE Matrix",
       "slug": "fte-matrix",
-      "section": "dentivis",
+      "section": "csas",
       "status": "wip",
       "url": "https://example.com",
       "description": "Short project description.",
@@ -300,7 +300,7 @@
       "tools": [
         "AI"
       ],
-      "visibility": "private",
+      "visibility": "public",
       "thumbnail": "/thumbnails/_fallback.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
