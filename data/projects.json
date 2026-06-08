@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-08T13:16:54.112Z",
+  "updatedAt": "2026-06-08T14:07:11.519Z",
   "sections": [
     {
       "id": "dentivis",
@@ -301,10 +301,10 @@
         "AI"
       ],
       "visibility": "public",
-      "thumbnail": "/thumbnails/fte-matrix.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-08T13:16:54.089Z",
+      "thumbnail": "/thumbnails/fte-matrix-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
