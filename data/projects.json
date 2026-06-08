@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-08T14:07:11.519Z",
+  "updatedAt": "2026-06-08T14:07:27.240Z",
   "sections": [
     {
       "id": "dentivis",
@@ -293,7 +293,7 @@
       "title": "FTE Matrix",
       "slug": "fte-matrix",
       "section": "csas",
-      "status": "wip",
+      "status": "live",
       "url": "https://example.com",
       "description": "Short project description.",
       "technologies": [],
