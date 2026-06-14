@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-14T06:27:11.262Z",
+  "updatedAt": "2026-06-14T06:27:39.299Z",
   "sections": [
     {
       "id": "dentivis",
@@ -314,7 +314,7 @@
       "id": "business-case-chatbot",
       "title": "Business Case - Chatbot",
       "slug": "business-case-chatbot",
-      "section": "dentivis",
+      "section": "csas",
       "status": "wip",
       "url": "https://adb-dp-4491797893244737.17.azuredatabricks.net/driver-proxy/o/4491797893244737/0611-074823-sh3fycvm/8051/",
       "description": "Short project description.",
