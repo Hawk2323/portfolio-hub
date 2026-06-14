@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-08T14:08:56.224Z",
+  "updatedAt": "2026-06-14T06:25:25.791Z",
   "sections": [
     {
       "id": "dentivis",
@@ -302,6 +302,28 @@
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/fte-matrix-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "business-case-chatbot",
+      "title": "Business Case - Chatbot",
+      "slug": "business-case-chatbot",
+      "section": "dentivis",
+      "status": "wip",
+      "url": "https://adb-dp-4491797893244737.17.azuredatabricks.net/driver-proxy/o/4491797893244737/0611-074823-sh3fycvm/8051/",
+      "description": "Short project description.",
+      "technologies": [],
+      "tools": [
+        "AI"
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/business-case-chatbot-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
       "thumbnailGeneratedAt": null,
