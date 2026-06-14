@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-14T06:26:42.152Z",
+  "updatedAt": "2026-06-14T06:27:11.262Z",
   "sections": [
     {
       "id": "dentivis",
@@ -45,7 +45,7 @@
       "thumbnail": "/thumbnails/dentivis-web.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-14T06:26:18.164Z",
+      "thumbnailGeneratedAt": "2026-06-08T14:08:32.580Z",
       "featured": false,
       "sortOrder": 20,
       "source": "manual",
@@ -71,7 +71,7 @@
       "thumbnail": "/thumbnails/mycka.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-14T06:26:21.415Z",
+      "thumbnailGeneratedAt": "2026-06-08T14:08:35.176Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -98,7 +98,7 @@
       "thumbnail": "/thumbnails/dentivis-graficky-manual.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-14T06:26:23.175Z",
+      "thumbnailGeneratedAt": "2026-06-08T14:08:36.956Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -151,7 +151,7 @@
       "thumbnail": "/thumbnails/vocabulary.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-14T06:26:36.777Z",
+      "thumbnailGeneratedAt": "2026-06-08T14:08:50.506Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -179,7 +179,7 @@
       "thumbnail": "/thumbnails/tv-cekarna.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-14T06:26:39.515Z",
+      "thumbnailGeneratedAt": "2026-06-08T14:08:53.185Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -207,7 +207,7 @@
       "thumbnail": "/thumbnails/katalog-elektroniky.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-14T06:26:42.126Z",
+      "thumbnailGeneratedAt": "2026-06-08T14:08:56.199Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -330,7 +330,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "Chat bot postavený nad Databricks, který pomůže uživateli, který má přístup, vytvořit business case. K dispozici je pak business case ke stažení jako xlsx, pdf nebo json."
     }
   ]
 }
