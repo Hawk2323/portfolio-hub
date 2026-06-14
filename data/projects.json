@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-14T06:28:38.148Z",
+  "updatedAt": "2026-06-14T06:29:15.912Z",
   "sections": [
     {
       "id": "dentivis",
@@ -319,7 +319,7 @@
       "url": "https://adb-dp-4491797893244737.17.azuredatabricks.net/driver-proxy/o/4491797893244737/0611-074823-sh3fycvm/8051/",
       "description": "Chat bot postavený nad Databricks, který pomůže uživateli, který má přístup, vytvořit business case. K dispozici je pak business case ke stažení jako xlsx, pdf nebo json.",
       "technologies": [
-        "Databrick"
+        "Databricks"
       ],
       "tools": [
         "AI"
