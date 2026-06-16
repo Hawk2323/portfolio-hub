@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-15T09:41:39.601Z",
+  "updatedAt": "2026-06-16T16:01:35.600Z",
   "sections": [
     {
       "id": "dentivis",
@@ -351,6 +351,28 @@
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
       "thumbnailGeneratedAt": "2026-06-15T09:41:39.580Z",
+      "featured": false,
+      "sortOrder": 100,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "kamery-dentivis",
+      "title": "Kamery Dentivis",
+      "slug": "kamery-dentivis",
+      "section": "dentivis",
+      "status": "wip",
+      "url": "https://example.com",
+      "description": "Kamery v ordinaci stále na ploše s uživatelským nastavením. Kamery se sami spouští, jsou sledovány, zda jsou v provozu - případně se restartují.",
+      "technologies": [],
+      "tools": [
+        "AI"
+      ],
+      "visibility": "private",
+      "thumbnail": "/thumbnails/kamery-dentivis-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
