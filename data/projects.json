@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-16T16:01:35.600Z",
+  "updatedAt": "2026-06-16T16:02:10.801Z",
   "sections": [
     {
       "id": "dentivis",
@@ -364,9 +364,11 @@
       "status": "wip",
       "url": "https://example.com",
       "description": "Kamery v ordinaci stále na ploše s uživatelským nastavením. Kamery se sami spouští, jsou sledovány, zda jsou v provozu - případně se restartují.",
-      "technologies": [],
+      "technologies": [
+        "Powershell"
+      ],
       "tools": [
-        "AI"
+        "ChatGPT"
       ],
       "visibility": "private",
       "thumbnail": "/thumbnails/kamery-dentivis-manual.webp",
