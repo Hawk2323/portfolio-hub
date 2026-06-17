@@ -18,6 +18,7 @@ The source of truth is `data/projects.json`.
 - `status`: `idea`, `wip`, `live`, `paused`, or `archived`.
 - `url`: external project URL.
 - `description`: public short description.
+- `linkMode`: `standard` or `vpn`; `vpn` opens a large thumbnail preview on the public site unless restricted links are enabled.
 - `technologies`: public technology pills shown below the thumbnail.
 - `tools`: public creation-tool pills shown below the technology pills.
 - `visibility`: `public`, `unlisted`, or `private`.

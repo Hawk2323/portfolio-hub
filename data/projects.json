@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:31:18.889Z",
+  "updatedAt": "2026-06-17T10:31:10.378Z",
   "sections": [
     {
       "id": "dentivis",
@@ -49,7 +49,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "osobni-backlog",
@@ -76,7 +77,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "vocabulary",
@@ -102,7 +104,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "tv-cekarna",
@@ -130,7 +133,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "katalog-elektroniky",
@@ -158,7 +162,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "diktafon",
@@ -184,7 +189,8 @@
       "featured": false,
       "sortOrder": 40,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "fte-dashboard",
@@ -211,7 +217,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "vpn"
     },
     {
       "id": "prehled-dochazky",
@@ -233,7 +240,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "vpn"
     },
     {
       "id": "fte-matrix",
@@ -255,7 +263,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "vpn"
     },
     {
       "id": "business-case-chatbot",
@@ -279,7 +288,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "vpn"
     },
     {
       "id": "tablet-recepce",
@@ -301,7 +311,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "web",
@@ -327,7 +338,8 @@
       "featured": false,
       "sortOrder": 20,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "kamery-desktop",
@@ -349,7 +361,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     },
     {
       "id": "graficky-manual",
@@ -376,7 +389,8 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": ""
+      "notesPrivate": "",
+      "linkMode": "standard"
     }
   ]
 }

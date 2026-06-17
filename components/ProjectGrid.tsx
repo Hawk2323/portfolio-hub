@@ -58,7 +58,7 @@ export default function ProjectGrid({ sections, projects, allowRestrictedLinks }
                 <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                   {group.projects.map((project) => {
                     const projectSection = sectionById.get(project.section);
-                    const restricted = projectSection?.linkMode === "vpn" && !allowRestrictedLinks;
+                    const restricted = project.linkMode === "vpn" && !allowRestrictedLinks;
 
                     return (
                       <ProjectCard

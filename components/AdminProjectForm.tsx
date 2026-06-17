@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
-import type { PortfolioProject, PortfolioSection, ProjectStatus, ProjectVisibility, ThumbnailMode, ProjectSource } from "@/lib/schema";
+import type { PortfolioProject, PortfolioSection, ProjectStatus, ProjectVisibility, ThumbnailMode, ProjectSource, SectionLinkMode } from "@/lib/schema";
 import { slugify } from "@/lib/slug";
 
 type DraftProject = PortfolioProject;
@@ -20,8 +20,9 @@ const statuses: ProjectStatus[] = ["idea", "wip", "live", "paused", "archived"];
 const visibilities: ProjectVisibility[] = ["public", "unlisted", "private"];
 const thumbnailModes: ThumbnailMode[] = ["auto", "manual", "fallback"];
 const sources: ProjectSource[] = ["manual", "pact", "external"];
+const linkModes: SectionLinkMode[] = ["standard", "vpn"];
 
-export function createEmptyProject(section: string): DraftProject {
+export function createEmptyProject(section: string, linkMode: SectionLinkMode = "standard"): DraftProject {
   const title = "New project";
   const slug = slugify(title);
   return {
@@ -32,6 +33,7 @@ export function createEmptyProject(section: string): DraftProject {
     status: "wip",
     url: "https://example.com",
     description: "Short project description.",
+    linkMode,
     technologies: [],
     tools: ["AI"],
     visibility: "private",
@@ -47,8 +49,6 @@ export function createEmptyProject(section: string): DraftProject {
 }
 
 export default function AdminProjectForm({ project, sections, onChange, onSave, onSaveUploaded, onCancel }: Props) {
-  const technologiesValue = useMemo(() => project.technologies.join(", "), [project.technologies]);
-  const toolsValue = useMemo(() => project.tools.join(", "), [project.tools]);
   const [uploadMessage, setUploadMessage] = useState("");
   const [uploading, setUploading] = useState(false);
 
@@ -126,6 +126,11 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
             {statuses.map((status) => <option key={status} value={status}>{status}</option>)}
           </select>
         </Field>
+        <Field label="Links">
+          <select className="admin-input" value={project.linkMode} onChange={(event) => update("linkMode", event.target.value as SectionLinkMode)}>
+            {linkModes.map((mode) => <option key={mode} value={mode}>{mode}</option>)}
+          </select>
+        </Field>
         <Field label="Visibility">
           <select className="admin-input" value={project.visibility} onChange={(event) => update("visibility", event.target.value as ProjectVisibility)}>
             {visibilities.map((visibility) => <option key={visibility} value={visibility}>{visibility}</option>)}
@@ -158,18 +163,10 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
           <input className="admin-input" type="number" value={project.sortOrder} onChange={(event) => update("sortOrder", Number(event.target.value))} />
         </Field>
         <Field label="Technologies">
-          <input
-            className="admin-input"
-            value={technologiesValue}
-            onChange={(event) => update("technologies", splitPills(event.target.value))}
-          />
+          <CommaListInput items={project.technologies} resetKey={project.id} onChange={(items) => update("technologies", items)} />
         </Field>
         <Field label="Tools">
-          <input
-            className="admin-input"
-            value={toolsValue}
-            onChange={(event) => update("tools", splitPills(event.target.value))}
-          />
+          <CommaListInput items={project.tools} resetKey={project.id} onChange={(items) => update("tools", items)} />
         </Field>
         <label className="flex items-center gap-2 text-sm font-medium text-slate-700">
           <input type="checkbox" checked={project.featured} onChange={(event) => update("featured", event.target.checked)} />
@@ -196,6 +193,29 @@ export default function AdminProjectForm({ project, sections, onChange, onSave, 
 
 function splitPills(value: string) {
   return value.split(",").map((item) => item.trim()).filter(Boolean);
+}
+
+function CommaListInput({ items, resetKey, onChange }: { items: string[]; resetKey: string; onChange: (items: string[]) => void }) {
+  const [value, setValue] = useState(items.join(", "));
+
+  useEffect(() => {
+    setValue(items.join(", "));
+  }, [items, resetKey]);
+
+  return (
+    <input
+      className="admin-input"
+      value={value}
+      onChange={(event) => {
+        setValue(event.target.value);
+      }}
+      onBlur={() => {
+        const nextItems = splitPills(value);
+        setValue(nextItems.join(", "));
+        onChange(nextItems);
+      }}
+    />
+  );
 }
 
 function Field({ label, children }: { label: string; children: ReactNode }) {

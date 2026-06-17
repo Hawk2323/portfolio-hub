@@ -38,7 +38,7 @@ export default function ProjectCard({ project, section, restricted = false, onPr
             </div>
             <div className="flex flex-wrap justify-end gap-2">
               <StatusBadge status={project.status} />
-              {section?.linkMode === "vpn" ? (
+              {project.linkMode === "vpn" ? (
                 <span className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700 ring-1 ring-slate-200">
                   VPN
                 </span>

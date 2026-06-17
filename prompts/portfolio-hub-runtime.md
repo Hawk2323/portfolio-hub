@@ -34,6 +34,7 @@ Use these defaults only when the user has not specified a value:
   "thumbnailLocked": false,
   "status": "wip",
   "source": "pact",
+  "linkMode": "standard",
   "technologies": [],
   "tools": ["AI"]
 }
@@ -51,6 +52,7 @@ Use these defaults only when the user has not specified a value:
     "status": "wip",
     "url": "https://example.com",
     "description": "Short project description.",
+    "linkMode": "standard",
     "technologies": ["Vercel"],
     "tools": ["AI"],
     "visibility": "private",

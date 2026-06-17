@@ -28,7 +28,7 @@ New admin-created projects default to `private`. Set `visibility` to `public` on
 
 Sections are managed in `/admin`. Their `sortOrder` controls the tab order and the public grouping order. Projects are shown under their section heading on the public page.
 
-The `CSAS` section uses `linkMode = vpn`. On the public Vercel site, CSAS cards open a large thumbnail preview instead of following the intranet URL. Static snapshots and environments with `NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS=true` allow those links to open normally.
+Projects use `linkMode = standard` or `linkMode = vpn`. On the public Vercel site, VPN projects open a large thumbnail preview instead of following the intranet URL. Static snapshots and environments with `NEXT_PUBLIC_ENABLE_RESTRICTED_LINKS=true` allow those links to open normally. Changing `linkMode` on a section in `/admin` applies that value to every project currently inside the section.
 
 ## Admin
 

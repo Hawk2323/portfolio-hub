@@ -92,15 +92,25 @@ export default function AdminProjectList() {
 
   function updateSection(previousId: string, section: PortfolioSection) {
     if (!data) return;
+    const previousSection = data.sections.find((item) => item.id === previousId);
     const nextId = slugify(section.id);
     const nextSection = { ...section, id: nextId };
+    const linkModeChanged = previousSection?.linkMode !== nextSection.linkMode;
+    const updateProjectSection = (project: PortfolioProject) => {
+      if (project.section !== previousId) return project;
+      return {
+        ...project,
+        section: nextId,
+        linkMode: linkModeChanged ? nextSection.linkMode : project.linkMode
+      };
+    };
+
     setData({
       ...data,
       sections: data.sections.map((item) => (item.id === previousId ? nextSection : item)),
-      projects: previousId === nextId
-        ? data.projects
-        : data.projects.map((project) => (project.section === previousId ? { ...project, section: nextId } : project))
+      projects: data.projects.map(updateProjectSection)
     });
+    setEditing((project) => (project ? updateProjectSection(project) : project));
   }
 
   function addSection() {
@@ -198,7 +208,10 @@ export default function AdminProjectList() {
     <section className="grid gap-6">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex flex-wrap gap-3">
-          <button type="button" className="admin-button-primary" onClick={() => setEditing(createEmptyProject(sortedSections[0]?.id ?? "private"))}>
+          <button type="button" className="admin-button-primary" onClick={() => {
+            const firstSection = sortedSections[0];
+            setEditing(createEmptyProject(firstSection?.id ?? "private", firstSection?.linkMode ?? "standard"));
+          }}>
             Add project
           </button>
           <button type="button" className="admin-button-secondary" onClick={addSection}>Add section</button>
@@ -294,7 +307,7 @@ export default function AdminProjectList() {
               </div>
               <p className="text-sm text-slate-600">{project.description}</p>
               <p className="mt-2 text-xs text-slate-500">
-                {sectionById.get(project.section)?.title ?? project.section} - order {project.sortOrder} - {project.thumbnailMode}
+                {sectionById.get(project.section)?.title ?? project.section} - {project.linkMode} - order {project.sortOrder} - {project.thumbnailMode}
                 {project.thumbnailLocked ? " - locked" : ""}
               </p>
             </div>

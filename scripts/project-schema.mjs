@@ -14,6 +14,7 @@ export const projectSchema = z.object({
   status: statusSchema,
   url: z.string().url(),
   description: z.string().min(1),
+  linkMode: sectionLinkModeSchema.default("standard"),
   technologies: z.array(z.string().min(1)).default([]),
   tools: z.array(z.string().min(1)).default(["AI"]),
   visibility: visibilitySchema.default("private"),
