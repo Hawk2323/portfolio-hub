@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:28:09.331Z",
+  "updatedAt": "2026-06-17T07:28:22.593Z",
   "sections": [
     {
       "id": "dentivis",
@@ -45,7 +45,7 @@
       "thumbnail": "/thumbnails/mycka.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:27:56.065Z",
+      "thumbnailGeneratedAt": "2026-06-17T07:21:50.282Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -72,7 +72,7 @@
       "thumbnail": "/thumbnails/dentivis-graficky-manual.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:27:57.919Z",
+      "thumbnailGeneratedAt": "2026-06-17T07:21:52.153Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -125,7 +125,7 @@
       "thumbnail": "/thumbnails/vocabulary.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:28:01.001Z",
+      "thumbnailGeneratedAt": "2026-06-17T07:21:55.669Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -181,7 +181,7 @@
       "thumbnail": "/thumbnails/katalog-elektroniky.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:28:03.272Z",
+      "thumbnailGeneratedAt": "2026-06-17T07:22:00.778Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -369,12 +369,34 @@
         "AI"
       ],
       "visibility": "public",
-      "thumbnail": "/thumbnails/web.webp",
+      "thumbnail": "/thumbnails/dentivis-web.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:28:09.307Z",
+      "thumbnailGeneratedAt": "2026-06-17T07:21:47.622Z",
       "featured": false,
       "sortOrder": 20,
+      "source": "manual",
+      "notesPrivate": ""
+    },
+    {
+      "id": "kamery-desktop",
+      "title": "Kamery - desktop",
+      "slug": "kamery-desktop",
+      "section": "dentivis",
+      "status": "live",
+      "url": "https://example.com",
+      "description": "Kamery na hlavní obrazovce počítače v ordinaci, které tam drží, automaticky se při pádu obnovují a mají konfigurační rozhraní.",
+      "technologies": [],
+      "tools": [
+        "ChatGPT"
+      ],
+      "visibility": "public",
+      "thumbnail": "/thumbnails/dentivis-kamery-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
+      "featured": false,
+      "sortOrder": 100,
       "source": "manual",
       "notesPrivate": ""
     }
