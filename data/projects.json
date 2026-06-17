@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:20:01.611Z",
+  "updatedAt": "2026-06-17T07:20:36.401Z",
   "sections": [
     {
       "id": "dentivis",
@@ -385,17 +385,17 @@
       "title": "Dentivis kamery",
       "slug": "dentivis-kamery",
       "section": "dentivis",
-      "status": "wip",
+      "status": "live",
       "url": "https://example.com",
       "description": "Kamery na hlavní obrazovce počítače v ordinaci, které tam drží, automaticky se při pádu obnovují a mají konfigurační rozhraní.",
       "technologies": [],
       "tools": [
         "AI"
       ],
-      "visibility": "private",
-      "thumbnail": "/thumbnails/_fallback.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
+      "visibility": "public",
+      "thumbnail": "/thumbnails/dentivis-kamery-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
       "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
