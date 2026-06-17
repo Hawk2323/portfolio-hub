@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-16T16:03:43.543Z",
+  "updatedAt": "2026-06-17T07:18:36.143Z",
   "sections": [
     {
       "id": "dentivis",
@@ -347,10 +347,10 @@
         "AI"
       ],
       "visibility": "public",
-      "thumbnail": "/thumbnails/tablet-recepce.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-16T16:03:43.520Z",
+      "thumbnail": "/thumbnails/tablet-recepce-manual.webp",
+      "thumbnailMode": "manual",
+      "thumbnailLocked": true,
+      "thumbnailGeneratedAt": null,
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
