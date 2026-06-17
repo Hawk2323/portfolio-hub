@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:20:36.401Z",
+  "updatedAt": "2026-06-17T07:20:55.172Z",
   "sections": [
     {
       "id": "dentivis",
@@ -390,7 +390,7 @@
       "description": "Kamery na hlavní obrazovce počítače v ordinaci, které tam drží, automaticky se při pádu obnovují a mají konfigurační rozhraní.",
       "technologies": [],
       "tools": [
-        "AI"
+        "ChatGPT"
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/dentivis-kamery-manual.webp",
