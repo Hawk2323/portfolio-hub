@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T10:38:58.286Z",
+  "updatedAt": "2026-06-17T11:09:49.843Z",
   "sections": [
     {
       "id": "dentivis",
@@ -300,9 +300,13 @@
       "url": "https://example.com",
       "description": "Tablet, na kterém se pacient zapíše telefonním číslem a v ordinaci se objeví info o tom, který pacient přišel.",
       "linkMode": "standard",
-      "technologies": [],
+      "technologies": [
+        "Python",
+        "Ubuntu"
+      ],
       "tools": [
-        "AI"
+        "ChatGPT",
+        "Codex"
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/tablet-recepce-manual.webp",
