@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:26:44.956Z",
+  "updatedAt": "2026-06-17T07:27:01.124Z",
   "sections": [
     {
       "id": "dentivis",
@@ -25,32 +25,6 @@
     }
   ],
   "projects": [
-    {
-      "id": "dentivis-web",
-      "title": "Dentivis Web",
-      "slug": "dentivis-web",
-      "section": "dentivis",
-      "status": "live",
-      "url": "https://www.dentivis.cz/",
-      "description": "Webové stránky ordinací Dentivis",
-      "technologies": [
-        "web",
-        "SEO",
-        "responsive UI"
-      ],
-      "tools": [
-        "AI"
-      ],
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-web.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:21:47.622Z",
-      "featured": false,
-      "sortOrder": 20,
-      "source": "manual",
-      "notesPrivate": ""
-    },
     {
       "id": "mycka",
       "title": "Myčka",
