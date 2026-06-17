@@ -62,7 +62,7 @@ export default function AdminProjectList() {
     setData(body);
   }
 
-  async function persist(nextData: ProjectsFile) {
+  async function persist(nextData: ProjectsFile, options: { closeEditing?: boolean } = {}) {
     setBusy(true);
     setMessage("");
     const response = await fetch("/api/admin/projects", {
@@ -77,7 +77,11 @@ export default function AdminProjectList() {
       return;
     }
     setData(body);
-    setEditing(null);
+    if (options.closeEditing ?? true) {
+      setEditing(null);
+    } else {
+      setEditing((project) => body.projects.find((item: PortfolioProject) => item.id === project?.id) ?? project);
+    }
     setMessage("Saved.");
   }
 
@@ -153,6 +157,17 @@ export default function AdminProjectList() {
   function deleteProject(project: PortfolioProject) {
     if (!data) return;
     void persist({ ...data, projects: data.projects.filter((item) => item.id !== project.id) });
+  }
+
+  function updateProjectLinkMode(project: PortfolioProject, linkMode: SectionLinkMode) {
+    if (!data) return;
+    void persist(
+      {
+        ...data,
+        projects: data.projects.map((item) => (item.id === project.id ? { ...item, linkMode } : item))
+      },
+      { closeEditing: false }
+    );
   }
 
   async function regenerate(project: PortfolioProject) {
@@ -311,7 +326,18 @@ export default function AdminProjectList() {
                 {project.thumbnailLocked ? " - locked" : ""}
               </p>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2">
+              <label className="grid gap-1 text-xs font-semibold text-slate-500">
+                Links
+                <select
+                  className="admin-input h-9 py-1"
+                  value={project.linkMode}
+                  onChange={(event) => updateProjectLinkMode(project, event.target.value as SectionLinkMode)}
+                  disabled={busy}
+                >
+                  {linkModes.map((mode) => <option key={mode} value={mode}>{mode}</option>)}
+                </select>
+              </label>
               <button type="button" className="admin-button-secondary" onClick={() => setEditing(project)} disabled={busy}>Edit</button>
               <button type="button" className="admin-button-secondary" onClick={() => regenerate(project)} disabled={busy}>Thumbnail</button>
               <button type="button" className="admin-button-secondary" onClick={() => archiveProject(project)} disabled={busy}>Archive</button>
