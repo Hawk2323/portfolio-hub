@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:28:22.593Z",
+  "updatedAt": "2026-06-17T07:28:30.190Z",
   "sections": [
     {
       "id": "dentivis",
@@ -322,28 +322,6 @@
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/tablet-recepce-manual.webp",
-      "thumbnailMode": "manual",
-      "thumbnailLocked": true,
-      "thumbnailGeneratedAt": null,
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": ""
-    },
-    {
-      "id": "dentivis-kamery",
-      "title": "Dentivis kamery",
-      "slug": "dentivis-kamery",
-      "section": "dentivis",
-      "status": "live",
-      "url": "https://example.com",
-      "description": "Kamery na hlavní obrazovce počítače v ordinaci, které tam drží, automaticky se při pádu obnovují a mají konfigurační rozhraní.",
-      "technologies": [],
-      "tools": [
-        "ChatGPT"
-      ],
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-kamery-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
       "thumbnailGeneratedAt": null,
