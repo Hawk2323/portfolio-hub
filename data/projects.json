@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T10:31:10.378Z",
+  "updatedAt": "2026-06-17T10:38:58.286Z",
   "sections": [
     {
       "id": "dentivis",
@@ -33,6 +33,7 @@
       "status": "live",
       "url": "https://dishwasher.onrender.com/",
       "description": "Aplikace pro záznam, kdo vyndal naposledy myčku a kdo je tedy na řadě.",
+      "linkMode": "standard",
       "technologies": [
         "web app",
         "Render",
@@ -45,12 +46,11 @@
       "thumbnail": "/thumbnails/mycka.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:31:05.096Z",
+      "thumbnailGeneratedAt": "2026-06-17T10:38:31.982Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "osobni-backlog",
@@ -60,6 +60,7 @@
       "status": "wip",
       "url": "https://pact-richards-projects-5347801f.vercel.app/",
       "description": "Nástroj na řízení vlastních projektů",
+      "linkMode": "standard",
       "technologies": [
         "Next.js",
         "React",
@@ -77,8 +78,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "vocabulary",
@@ -88,6 +88,7 @@
       "status": "paused",
       "url": "https://vocabulary-1-32xc.onrender.com/",
       "description": "Aplikace na výuku a testování slovíček, které se uploadují podle toho, jaké se děti učí.",
+      "linkMode": "standard",
       "technologies": [
         "web app",
         "Render",
@@ -100,12 +101,11 @@
       "thumbnail": "/thumbnails/vocabulary.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:31:08.078Z",
+      "thumbnailGeneratedAt": "2026-06-17T10:38:45.518Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "tv-cekarna",
@@ -115,6 +115,7 @@
       "status": "live",
       "url": "https://pact-pgbz.vercel.app/Waiting-Screen-Demo/",
       "description": "TV obrazovka, která slouží jako informační panel v čekárně Dentivis. Včetně admin rozhraní, kde si uživatel řídí, co na obrazovce je.",
+      "linkMode": "standard",
       "technologies": [
         "HTML/CSS",
         "JavaScript",
@@ -133,8 +134,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "katalog-elektroniky",
@@ -144,6 +144,7 @@
       "status": "wip",
       "url": "https://equipment-ashen.vercel.app/",
       "description": "Přehled elektronických zařízení ve všech našich rodinných domácnostech. Stačí vyfotit štítek a ChatGPT + GitHub se postará o zjištění všech paramerů a zařazení do katalogu.",
+      "linkMode": "standard",
       "technologies": [
         "Next.js",
         "React",
@@ -158,12 +159,11 @@
       "thumbnail": "/thumbnails/katalog-elektroniky.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:31:10.159Z",
+      "thumbnailGeneratedAt": "2026-06-17T10:38:48.380Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "diktafon",
@@ -173,6 +173,7 @@
       "status": "live",
       "url": "https://pact-richards-projects-5347801f.vercel.app/diktafon",
       "description": "Safe placeholder for a private dictation workflow concept.",
+      "linkMode": "standard",
       "technologies": [
         "audio",
         "workflow",
@@ -189,8 +190,7 @@
       "featured": false,
       "sortOrder": 40,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "fte-dashboard",
@@ -200,6 +200,7 @@
       "status": "live",
       "url": "https://cdn.csin.cz/personal/ricervenka/pracovni_pozice",
       "description": "Počty FTE přes divize, útvary a týmy podle profesí.",
+      "linkMode": "vpn",
       "technologies": [
         "dashboard",
         "data visualization",
@@ -217,8 +218,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "vpn"
+      "notesPrivate": ""
     },
     {
       "id": "prehled-dochazky",
@@ -228,6 +228,7 @@
       "status": "live",
       "url": "https://cdn.csin.cz/personal/ricervenka/attendance/",
       "description": "Přehled, kdo je kdy v kanceláři a kdo je off nebo na home office",
+      "linkMode": "vpn",
       "technologies": [],
       "tools": [
         "AI"
@@ -240,8 +241,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "vpn"
+      "notesPrivate": ""
     },
     {
       "id": "fte-matrix",
@@ -251,6 +251,7 @@
       "status": "live",
       "url": "https://example.com",
       "description": "Short project description.",
+      "linkMode": "vpn",
       "technologies": [],
       "tools": [
         "AI"
@@ -263,8 +264,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "vpn"
+      "notesPrivate": ""
     },
     {
       "id": "business-case-chatbot",
@@ -274,6 +274,7 @@
       "status": "wip",
       "url": "https://adb-dp-4491797893244737.17.azuredatabricks.net/driver-proxy/o/4491797893244737/0611-074823-sh3fycvm/8051/",
       "description": "Chat bot postavený nad Databricks, který pomůže uživateli, který má přístup, vytvořit business case. K dispozici je pak business case ke stažení jako xlsx, pdf nebo json.",
+      "linkMode": "vpn",
       "technologies": [
         "Databricks"
       ],
@@ -288,8 +289,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "vpn"
+      "notesPrivate": ""
     },
     {
       "id": "tablet-recepce",
@@ -299,6 +299,7 @@
       "status": "wip",
       "url": "https://example.com",
       "description": "Tablet, na kterém se pacient zapíše telefonním číslem a v ordinaci se objeví info o tom, který pacient přišel.",
+      "linkMode": "standard",
       "technologies": [],
       "tools": [
         "AI"
@@ -311,8 +312,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "web",
@@ -322,6 +322,7 @@
       "status": "live",
       "url": "https://www.dentivis.cz/",
       "description": "Webové stránky ordinací Dentivis",
+      "linkMode": "standard",
       "technologies": [
         "web",
         "SEO",
@@ -334,12 +335,11 @@
       "thumbnail": "/thumbnails/web.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:31:17.023Z",
+      "thumbnailGeneratedAt": "2026-06-17T10:38:56.471Z",
       "featured": false,
       "sortOrder": 20,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "kamery-desktop",
@@ -349,6 +349,7 @@
       "status": "live",
       "url": "https://example.com",
       "description": "Kamery na hlavní obrazovce počítače v ordinaci, které tam drží, automaticky se při pádu obnovují a mají konfigurační rozhraní.",
+      "linkMode": "standard",
       "technologies": [],
       "tools": [
         "ChatGPT"
@@ -361,8 +362,7 @@
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     },
     {
       "id": "graficky-manual",
@@ -372,6 +372,7 @@
       "status": "live",
       "url": "https://dentivis-manual.vercel.app/",
       "description": "Grafický manuál - loga, písma, tvorba vizitek",
+      "linkMode": "standard",
       "technologies": [
         "Next.js",
         "React",
@@ -385,12 +386,11 @@
       "thumbnail": "/thumbnails/graficky-manual.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:31:18.870Z",
+      "thumbnailGeneratedAt": "2026-06-17T10:38:58.263Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
-      "notesPrivate": "",
-      "linkMode": "standard"
+      "notesPrivate": ""
     }
   ]
 }
