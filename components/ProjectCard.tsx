@@ -12,14 +12,14 @@ type Props = {
 export default function ProjectCard({ project, section, restricted = false, onPreview }: Props) {
   const thumbnail = (
     <div className="rounded-md bg-slate-950/5 p-2 ring-1 ring-slate-200">
-      <div className="aspect-[1200/760] overflow-hidden rounded bg-white shadow-inner ring-1 ring-slate-900/10">
+      <div className="aspect-[1200/760] rounded bg-white shadow-inner ring-1 ring-slate-900/10">
         <Image
           src={project.thumbnail || "/thumbnails/_fallback.webp"}
           alt=""
           width={1200}
           height={760}
           unoptimized
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-[1.015]"
+          className="h-full w-full rounded object-contain"
         />
       </div>
     </div>

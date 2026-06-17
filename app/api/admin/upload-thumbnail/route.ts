@@ -48,7 +48,7 @@ export async function POST(request: NextRequest) {
 
     const input = Buffer.from(await file.arrayBuffer());
     const output = await sharp(input)
-      .resize(1200, 760, { fit: "cover", position: "attention" })
+      .resize(1200, 760, { fit: "contain", background: "#ffffff" })
       .webp({ quality: 88 })
       .toBuffer();
 

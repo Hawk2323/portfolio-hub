@@ -80,7 +80,7 @@ function getArgValue(name) {
 
 async function composeThumbnail({ screenshot, outputPath }) {
   await sharp(screenshot)
-    .resize(width, height, { fit: "cover", position: "top" })
+    .resize(width, height, { fit: "contain", background: "#ffffff" })
     .webp({ quality: 86 })
     .toFile(outputPath);
 }

@@ -55,7 +55,7 @@ Skipped automatically:
 
 If a URL fails, the script creates a fallback thumbnail and sets `thumbnailMode = fallback`.
 
-Admins can also upload a manual thumbnail. The upload is converted to `1200 x 760` WebP, saved under `public/thumbnails`, and the project is saved with `thumbnailMode = manual` and `thumbnailLocked = true`.
+Admins can also upload a manual thumbnail. The upload is converted to `1200 x 760` WebP without cropping, saved under `public/thumbnails`, and the project is saved with `thumbnailMode = manual` and `thumbnailLocked = true`.
 
 ## Deployment
 
