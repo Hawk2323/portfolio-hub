@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:29:20.103Z",
+  "updatedAt": "2026-06-17T07:29:25.915Z",
   "sections": [
     {
       "id": "dentivis",
@@ -46,33 +46,6 @@
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
       "thumbnailGeneratedAt": "2026-06-17T07:21:50.282Z",
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": ""
-    },
-    {
-      "id": "dentivis-graficky-manual",
-      "title": "Dentivis - Grafický manuál",
-      "slug": "dentivis-graficky-manual",
-      "section": "dentivis",
-      "status": "wip",
-      "url": "https://dentivis-manual.vercel.app/",
-      "description": "Grafický manuál - loga, písma, tvorba vizitek",
-      "technologies": [
-        "Next.js",
-        "React",
-        "Vercel",
-        "brand system"
-      ],
-      "tools": [
-        "AI"
-      ],
-      "visibility": "public",
-      "thumbnail": "/thumbnails/dentivis-graficky-manual.webp",
-      "thumbnailMode": "auto",
-      "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-17T07:21:52.153Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
