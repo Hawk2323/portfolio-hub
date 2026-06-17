@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T07:22:00.800Z",
+  "updatedAt": "2026-06-17T07:26:12.823Z",
   "sections": [
     {
       "id": "dentivis",
@@ -348,30 +348,6 @@
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/tablet-recepce-manual.webp",
-      "thumbnailMode": "manual",
-      "thumbnailLocked": true,
-      "thumbnailGeneratedAt": null,
-      "featured": false,
-      "sortOrder": 100,
-      "source": "manual",
-      "notesPrivate": ""
-    },
-    {
-      "id": "kamery-dentivis",
-      "title": "Kamery Dentivis",
-      "slug": "kamery-dentivis",
-      "section": "dentivis",
-      "status": "wip",
-      "url": "https://example.com",
-      "description": "Kamery v ordinaci stále na ploše s uživatelským nastavením. Kamery se sami spouští, jsou sledovány, zda jsou v provozu - případně se restartují.",
-      "technologies": [
-        "Powershell"
-      ],
-      "tools": [
-        "ChatGPT"
-      ],
-      "visibility": "private",
-      "thumbnail": "/thumbnails/kamery-dentivis-manual.webp",
       "thumbnailMode": "manual",
       "thumbnailLocked": true,
       "thumbnailGeneratedAt": null,
