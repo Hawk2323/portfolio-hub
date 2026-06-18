@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-18T05:27:30.502Z",
+  "updatedAt": "2026-06-18T05:27:46.789Z",
   "sections": [
     {
       "id": "dentivis",
@@ -356,7 +356,9 @@
       "url": "https://example.com",
       "description": "Kamery na hlavní obrazovce počítače v ordinaci, které tam drží, automaticky se při pádu obnovují a mají konfigurační rozhraní.",
       "linkMode": "vpn",
-      "technologies": [],
+      "technologies": [
+        "Powershell"
+      ],
       "tools": [
         "ChatGPT"
       ],
