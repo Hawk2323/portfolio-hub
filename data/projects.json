@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-17T13:11:59.556Z",
+  "updatedAt": "2026-06-18T05:27:01.785Z",
   "sections": [
     {
       "id": "dentivis",
@@ -329,11 +329,13 @@
       "linkMode": "standard",
       "technologies": [
         "web",
-        "SEO",
+        "HTML",
+        "css",
         "responsive UI"
       ],
       "tools": [
-        "AI"
+        "Cursor",
+        "ChaGPT"
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/web.webp",
