@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-18T05:27:01.785Z",
+  "updatedAt": "2026-06-18T05:27:30.502Z",
   "sections": [
     {
       "id": "dentivis",
@@ -386,7 +386,7 @@
         "brand system"
       ],
       "tools": [
-        "AI"
+        "Cursor"
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/graficky-manual.webp",
