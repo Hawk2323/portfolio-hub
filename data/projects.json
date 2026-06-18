@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-18T05:29:26.985Z",
+  "updatedAt": "2026-06-18T05:30:36.969Z",
   "sections": [
     {
       "id": "dentivis",
@@ -46,7 +46,7 @@
       "thumbnail": "/thumbnails/mycka.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-18T05:29:10.948Z",
+      "thumbnailGeneratedAt": "2026-06-17T13:11:35.189Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -101,7 +101,7 @@
       "thumbnail": "/thumbnails/vocabulary.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-18T05:29:14.549Z",
+      "thumbnailGeneratedAt": "2026-06-17T13:11:48.898Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -119,7 +119,7 @@
       "technologies": [
         "HTML/CSS",
         "JavaScript",
-        "Vercel",
+        "Ubuntu",
         "signage",
         "admin UI"
       ],
@@ -160,7 +160,7 @@
       "thumbnail": "/thumbnails/katalog-elektroniky.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-18T05:29:17.167Z",
+      "thumbnailGeneratedAt": "2026-06-17T13:11:51.197Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
@@ -342,7 +342,7 @@
       "thumbnail": "/thumbnails/web.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-18T05:29:25.010Z",
+      "thumbnailGeneratedAt": "2026-06-17T13:11:57.745Z",
       "featured": false,
       "sortOrder": 20,
       "source": "manual",
@@ -395,7 +395,7 @@
       "thumbnail": "/thumbnails/graficky-manual.webp",
       "thumbnailMode": "auto",
       "thumbnailLocked": false,
-      "thumbnailGeneratedAt": "2026-06-18T05:29:26.966Z",
+      "thumbnailGeneratedAt": "2026-06-17T13:11:59.533Z",
       "featured": false,
       "sortOrder": 100,
       "source": "manual",
