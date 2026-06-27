@@ -1,6 +1,6 @@
 {
   "schemaVersion": "portfolio.projects.v1",
-  "updatedAt": "2026-06-22T09:26:09.260Z",
+  "updatedAt": "2026-06-27T07:00:54.182Z",
   "sections": [
     {
       "id": "dentivis",
@@ -113,7 +113,7 @@
       "slug": "tv-cekarna",
       "section": "dentivis",
       "status": "live",
-      "url": "https://pact-pgbz.vercel.app/Waiting-Screen-Demo/",
+      "url": "http://10.20.40.7:8080/",
       "description": "TV obrazovka, která slouží jako informační panel v čekárně Dentivis. Včetně admin rozhraní, kde si uživatel řídí, co na obrazovce je.",
       "linkMode": "standard",
       "technologies": [
