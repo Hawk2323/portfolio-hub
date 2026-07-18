@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import type { PortfolioProject, PortfolioSection } from "@/lib/schema";
+import type { PortfolioProject, PortfolioSection, TermDescriptions } from "@/lib/schema";
 import ProjectCard from "./ProjectCard";
 import SectionTabs from "./SectionTabs";
 
 type Props = {
   sections: PortfolioSection[];
   projects: PortfolioProject[];
+  termDescriptions: TermDescriptions;
   allowRestrictedLinks: boolean;
 };
 
-export default function ProjectGrid({ sections, projects, allowRestrictedLinks }: Props) {
+export default function ProjectGrid({ sections, projects, termDescriptions, allowRestrictedLinks }: Props) {
   const [section, setSection] = useState("all");
   const [previewProject, setPreviewProject] = useState<PortfolioProject | null>(null);
 
@@ -65,6 +66,7 @@ export default function ProjectGrid({ sections, projects, allowRestrictedLinks }
                         key={project.id}
                         project={project}
                         section={projectSection}
+                        termDescriptions={termDescriptions}
                         restricted={restricted}
                         onPreview={() => setPreviewProject(project)}
                       />
