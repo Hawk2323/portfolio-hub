@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { ProjectsFile, PortfolioProject, PortfolioSection, SectionLinkMode } from "@/lib/schema";
 import { slugify } from "@/lib/slug";
 import AdminProjectForm, { createEmptyProject } from "./AdminProjectForm";
+import AdminTermDescriptions from "./AdminTermDescriptions";
 import StatusBadge from "./StatusBadge";
 
 const linkModes: SectionLinkMode[] = ["standard", "vpn"];
@@ -297,6 +298,13 @@ export default function AdminProjectList() {
           ))}
         </div>
       </div>
+
+      <AdminTermDescriptions
+        data={data}
+        busy={busy}
+        onChange={setData}
+        onSave={() => persist(data, { closeEditing: false })}
+      />
 
       {editing ? (
         <AdminProjectForm

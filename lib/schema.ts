@@ -6,6 +6,11 @@ export const thumbnailModeSchema = z.enum(["auto", "manual", "fallback"]);
 export const sourceSchema = z.enum(["manual", "pact", "external"]);
 export const sectionLinkModeSchema = z.enum(["standard", "vpn"]);
 
+export const termDescriptionsSchema = z.object({
+  technologies: z.record(z.string(), z.string()).default({}),
+  tools: z.record(z.string(), z.string()).default({})
+});
+
 export const sectionSchema = z.object({
   id: z.string().min(1).regex(/^[a-z0-9-]+$/),
   title: z.string().min(1),
@@ -40,6 +45,7 @@ export const projectsFileSchema = z.object({
   schemaVersion: z.literal("portfolio.projects.v1"),
   updatedAt: z.string().datetime(),
   sections: z.array(sectionSchema).min(1),
+  termDescriptions: termDescriptionsSchema.default({ technologies: {}, tools: {} }),
   projects: z.array(projectSchema)
 }).superRefine((data, ctx) => {
   const sectionIds = new Set(data.sections.map((section) => section.id));
@@ -72,6 +78,7 @@ export type ProjectVisibility = z.infer<typeof visibilitySchema>;
 export type ThumbnailMode = z.infer<typeof thumbnailModeSchema>;
 export type ProjectSource = z.infer<typeof sourceSchema>;
 export type SectionLinkMode = z.infer<typeof sectionLinkModeSchema>;
+export type TermDescriptions = z.infer<typeof termDescriptionsSchema>;
 export type PortfolioSection = z.infer<typeof sectionSchema>;
 export type PortfolioProject = z.infer<typeof projectSchema>;
 export type ProjectsFile = z.infer<typeof projectsFileSchema>;

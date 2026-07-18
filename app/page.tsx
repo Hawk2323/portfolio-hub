@@ -17,7 +17,12 @@ export default async function Home() {
         </h1>
       </header>
 
-      <ProjectGrid sections={sections} projects={projects} allowRestrictedLinks={allowRestrictedLinks} />
+      <ProjectGrid
+        sections={sections}
+        projects={projects}
+        termDescriptions={portfolio.termDescriptions}
+        allowRestrictedLinks={allowRestrictedLinks}
+      />
 
       {!isStaticSnapshot ? (
         <footer className="mt-auto flex justify-end pt-8">

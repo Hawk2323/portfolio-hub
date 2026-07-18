@@ -1,15 +1,16 @@
 import Image from "next/image";
-import type { PortfolioProject, PortfolioSection } from "@/lib/schema";
+import type { PortfolioProject, PortfolioSection, TermDescriptions } from "@/lib/schema";
 import StatusBadge from "./StatusBadge";
 
 type Props = {
   project: PortfolioProject;
   section?: PortfolioSection;
+  termDescriptions: TermDescriptions;
   restricted?: boolean;
   onPreview?: () => void;
 };
 
-export default function ProjectCard({ project, section, restricted = false, onPreview }: Props) {
+export default function ProjectCard({ project, section, termDescriptions, restricted = false, onPreview }: Props) {
   const thumbnail = (
     <div className="rounded-md bg-slate-950/5 p-2 ring-1 ring-slate-200">
       <div className="aspect-[1200/760] rounded bg-white shadow-inner ring-1 ring-slate-900/10">
@@ -59,15 +60,15 @@ export default function ProjectCard({ project, section, restricted = false, onPr
         )}
 
         <div className="grid gap-2">
-          <PillSet items={project.technologies} tone="technology" />
-          <PillSet items={project.tools} tone="tool" />
+          <PillSet items={project.technologies} descriptions={termDescriptions.technologies} tone="technology" />
+          <PillSet items={project.tools} descriptions={termDescriptions.tools} tone="tool" />
         </div>
       </div>
     </article>
   );
 }
 
-function PillSet({ items, tone }: { items: string[]; tone: "technology" | "tool" }) {
+function PillSet({ items, descriptions, tone }: { items: string[]; descriptions: Record<string, string>; tone: "technology" | "tool" }) {
   if (items.length === 0) return null;
 
   const className = tone === "technology"
@@ -76,11 +77,19 @@ function PillSet({ items, tone }: { items: string[]; tone: "technology" | "tool"
 
   return (
     <div className="flex flex-wrap gap-2">
-      {items.map((item) => (
-        <span key={item} className={className}>
-          {item}
-        </span>
-      ))}
+      {items.map((item) => {
+        const description = descriptions[item]?.trim();
+        return (
+          <span
+            key={item}
+            className={`${className}${description ? " cursor-help" : ""}`}
+            title={description || undefined}
+            aria-label={description ? `${item}: ${description}` : undefined}
+          >
+            {item}
+          </span>
+        );
+      })}
     </div>
   );
 }
