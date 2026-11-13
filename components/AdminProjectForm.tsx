@@ -78,6 +78,11 @@ export default function AdminProjectForm({ project, sections, isNew, busy, onCha
     }
   }
 
+  function cancel() {
+    if (file && !window.confirm("Zahodit vybraný obrázek a odejít bez uložení?")) return;
+    onCancel();
+  }
+
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setError("");
@@ -97,7 +102,7 @@ export default function AdminProjectForm({ project, sections, isNew, busy, onCha
           <h2 className="text-xl font-semibold text-ink">{project.title || "Nový projekt"}</h2>
         </div>
         <div className="flex gap-2">
-          <button type="button" onClick={onCancel} className="admin-button-secondary" disabled={busy}>Zpět bez uložení</button>
+          <button type="button" onClick={cancel} className="admin-button-secondary" disabled={busy}>Zpět bez uložení</button>
           <button type="submit" className="admin-button-primary" disabled={busy}>{busy ? "Ukládám…" : "Uložit změny"}</button>
         </div>
       </div>
@@ -229,7 +234,7 @@ export default function AdminProjectForm({ project, sections, isNew, busy, onCha
       </section>
       {error ? <p role="alert" className="rounded-lg bg-red-50 p-3 text-sm text-red-700">{error}</p> : null}
       <div className="flex justify-end gap-2 pb-8">
-        <button type="button" className="admin-button-secondary" onClick={onCancel} disabled={busy}>Zrušit</button>
+        <button type="button" className="admin-button-secondary" onClick={cancel} disabled={busy}>Zrušit</button>
         <button type="submit" className="admin-button-primary" disabled={busy}>{busy ? "Ukládám…" : "Uložit změny"}</button>
       </div>
     </form>

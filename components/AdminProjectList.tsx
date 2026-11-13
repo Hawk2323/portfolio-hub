@@ -52,6 +52,7 @@ export default function AdminProjectList({ editProjectId }: Props) {
   const [error, setError] = useState(false);
   const [busy, setBusy] = useState(false);
   const savedDataRef = useRef<ProjectsFile | null>(null);
+  const navigationAllowedRef = useRef(false);
   const isEditor = editProjectId !== undefined;
   const isNew = editProjectId === "new";
 
@@ -74,7 +75,9 @@ export default function AdminProjectList({ editProjectId }: Props) {
 
   const unsavedList = !isEditor && data !== null && savedDataRef.current !== null &&
     JSON.stringify(data) !== JSON.stringify(savedDataRef.current);
-  const unsavedEditor = isEditor && Boolean(editing && (isNew || JSON.stringify(editing) !== JSON.stringify(initialEditing)));
+  const unsavedEditor = isEditor && Boolean(editing && (isNew
+    ? Boolean(editing.title.trim() || editing.url.trim() || editing.description.trim())
+    : JSON.stringify(editing) !== JSON.stringify(initialEditing)));
   const unsaved = Boolean(unsavedList || unsavedEditor);
 
   useEffect(() => {
@@ -116,6 +119,7 @@ export default function AdminProjectList({ editProjectId }: Props) {
   useEffect(() => {
     if (!unsaved) return;
     function warn(event: BeforeUnloadEvent) {
+      if (navigationAllowedRef.current) return;
       event.preventDefault();
       event.returnValue = "";
     }
@@ -214,6 +218,7 @@ export default function AdminProjectList({ editProjectId }: Props) {
 
   function editorBack() {
     if (unsavedEditor && !window.confirm("Zahodit neuložené změny projektu?")) return;
+    navigationAllowedRef.current = true;
     window.location.href = backHref;
   }
 
@@ -270,7 +275,10 @@ export default function AdminProjectList({ editProjectId }: Props) {
       ? data.projects.map((item) => item.id === original.id ? nextProject : item)
       : [...data.projects, nextProject];
     const saved = await persist({ ...data, projects }, "Projekt byl uložen.");
-    if (saved) window.location.href = backHref;
+    if (saved) {
+      navigationAllowedRef.current = true;
+      window.location.href = backHref;
+    }
     return Boolean(saved);
   }
 
@@ -334,6 +342,7 @@ export default function AdminProjectList({ editProjectId }: Props) {
 
   async function archiveProject(project: PortfolioProject) {
     if (!data || busy) return;
+    if (unsavedList) { setError(true); setMessage("Nejdřív ulož neuložené změny v přehledu."); return; }
     if (!window.confirm("Archivovat projekt „" + project.title + "“? Projekt se zároveň skryje z veřejného portfolia.")) return;
     await persist({
       ...data,
@@ -343,6 +352,7 @@ export default function AdminProjectList({ editProjectId }: Props) {
 
   async function deleteProject(project: PortfolioProject) {
     if (!data || busy) return;
+    if (unsavedList) { setError(true); setMessage("Nejdřív ulož neuložené změny v přehledu."); return; }
     if (!window.confirm("Trvale smazat projekt „" + project.title + "“ ze seznamu? Tuto akci nelze vrátit přímo v administraci.")) return;
     await persist({ ...data, projects: data.projects.filter((item) => item.id !== project.id) }, "Projekt byl odstraněn.");
   }

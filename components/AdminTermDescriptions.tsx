@@ -34,7 +34,7 @@ export default function AdminTermDescriptions({ data, busy, onChange, onSave }: 
   const missingCount = terms.filter((term) => !term.description.trim()).length;
   const visible = terms.filter((term) =>
     (kindFilter === "all" || term.kind === kindFilter) &&
-    (!onlyMissing || !term.description.trim()) &&
+    (!onlyMissing || !term.description.trim() || expanded.includes(term.kind + ":" + term.name)) &&
     (term.name.toLocaleLowerCase("cs").includes(query.toLocaleLowerCase("cs")) || term.sections.some((section) => section.toLocaleLowerCase("cs").includes(query.toLocaleLowerCase("cs"))))
   );
 

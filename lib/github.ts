@@ -3,11 +3,15 @@ import { projectsFileSchema, type ProjectsFile } from "./schema";
 type GitHubContent = { content: string; sha: string; encoding: string };
 
 function githubConfig() {
+  // Preview writes must never silently mutate production main.
+  const branch = process.env.VERCEL_ENV === "preview"
+    ? process.env.VERCEL_GIT_COMMIT_REF
+    : (process.env.GITHUB_BRANCH ?? "main");
   return {
     token: process.env.GITHUB_TOKEN,
     owner: process.env.GITHUB_OWNER ?? "Hawk2323",
     repo: process.env.GITHUB_REPO ?? "portfolio-hub",
-    branch: process.env.GITHUB_BRANCH ?? "main"
+    branch
   };
 }
 
