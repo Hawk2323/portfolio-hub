@@ -8,6 +8,8 @@ The source of truth is `data/projects.json`.
 - `updatedAt`: ISO datetime.
 - `sections`: display sections sorted by `sortOrder`.
 - `projects`: curated project entries.
+- `termDescriptions`: shared Czech tooltip descriptions, by exact term name and type (`technologies` or `tools`).
+- `termCategories`: category for each shared term name and type. Both maps persist unused catalog options and default to empty when loading legacy data.
 
 ## Project fields
 
@@ -32,3 +34,5 @@ The source of truth is `data/projects.json`.
 - `notesPrivate`: admin-only notes.
 
 Only `visibility = public` is rendered on `/`.
+
+The editor uses a searchable multi-select over the union of used project terms and catalog metadata. New terms require a category and a short description; descriptions and categories are shared across all projects. The thumbnail generator preserves both catalog maps on write.

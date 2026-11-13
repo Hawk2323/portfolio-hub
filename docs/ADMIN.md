@@ -6,8 +6,8 @@ Administrace běží na `/admin` a používá podepsanou `HttpOnly` cookie.
 
 - **Projekty**: vyhledávání, filtr sekce a stavu, malé náhledy, změna pořadí pomocí šipek. Změněné pořadí se ukládá tlačítkem **Uložit změny**.
 - **Sekce**: úprava názvu, popisu a výchozího typu odkazu; změna výchozího typu odkazu po potvrzení aktualizuje i projekty v dané sekci.
-- **Technologie a nástroje**: jedno sdílené vysvětlení pro každý přesný název, přepínač chybějících popisů.
-- **Editor**: `/admin/projects/[id]/edit`, nový projekt na `/admin/projects/new/edit`. Opuštění rozpracovaných změn je chráněno potvrzením. Existující ID a slug nejsou přepisovány při přejmenování.
+- **Technologie a nástroje**: společný katalog rozdělený na technologické a nástrojové kategorie. Každá položka má stručný český popis, který slouží také jako veřejný tooltip. Katalog umožňuje hledat, filtrovat, měnit kategorie a přidávat další pojmy.
+- **Editor**: `/admin/projects/[id]/edit`, nový projekt na `/admin/projects/new/edit`. Technologie a nástroje se vybírají z kategorizovaných dropdownů s více výběry; nový pojem je možné založit včetně kategorie a popisu a uloží se spolu s projektem. Opuštění rozpracovaných změn je chráněno potvrzením. Existující ID a slug nejsou přepisovány při přejmenování.
 - **Náhled**: vlastní obrázek se vybere ve formuláři a nahraje při uložení; uložením se nastaví `manual` a `thumbnailLocked=true`. Automatické generování v produkci probíhá přes GitHub Actions, nikoli tlačítkem v administraci.
 - **Archivace/smazání**: potvrzovací dialog. Archivace zároveň nastaví `visibility=private`.
 
@@ -31,3 +31,11 @@ Vlastní nahrání obrázku je samostatný GitHub commit. Pokud následné ulož
 - `GITHUB_BRANCH`: produkční cílová větev, výchozí `main`.
 
 Session trvá 12 hodin; cookie je `HttpOnly`, `SameSite=Lax` a v produkci `Secure`. Hesla ani tokeny se nikdy nevracejí do frontendu.
+
+## Datový katalog
+
+- `termDescriptions.technologies/tools` ukládá jeden společný popis na přesný název pojmu.
+- `termCategories.technologies/tools` ukládá zvolenou kategorii. Pole jsou zpětně kompatibilní a mají výchozí prázdnou mapu.
+- Výchozí katalog obsahuje všechny pojmy používané v projektech; další mohou být přidané i bez přiřazení k projektu.
+- Katalog není ukládán zvlášť od `data/projects.json` a aktualizace thumbnailů ho musí zachovat; proto jsou obě metadata deklarována rovněž ve `scripts/project-schema.mjs`.
+- Zjevný překlep `ChaGPT` v projektu Web je sjednocen na existující `ChatGPT`.

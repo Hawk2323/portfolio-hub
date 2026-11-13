@@ -5,6 +5,10 @@ const visibilitySchema = z.enum(["public", "unlisted", "private"]);
 const thumbnailModeSchema = z.enum(["auto", "manual", "fallback"]);
 const sourceSchema = z.enum(["manual", "pact", "external"]);
 const sectionLinkModeSchema = z.enum(["standard", "vpn"]);
+const termMetadataSchema = z.object({
+  technologies: z.record(z.string(), z.string()).default({}),
+  tools: z.record(z.string(), z.string()).default({})
+});
 
 export const projectSchema = z.object({
   id: z.string().min(1).regex(/^[a-z0-9-]+$/),
@@ -38,6 +42,8 @@ export const projectsFileSchema = z.object({
     sortOrder: z.number().int().default(100),
     linkMode: sectionLinkModeSchema.default("standard")
   })).min(1),
+  termDescriptions: termMetadataSchema.default({ technologies: {}, tools: {} }),
+  termCategories: termMetadataSchema.default({ technologies: {}, tools: {} }),
   projects: z.array(projectSchema)
 }).superRefine((data, ctx) => {
   const sectionIds = new Set(data.sections.map((section) => section.id));
