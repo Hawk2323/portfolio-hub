@@ -4,12 +4,17 @@ import Image from "next/image";
 import { useEffect, useState, type FormEvent } from "react";
 import type { PortfolioProject, PortfolioSection, ProjectSource, ProjectStatus, ProjectVisibility, SectionLinkMode, ThumbnailMode } from "@/lib/schema";
 import { slugify } from "@/lib/slug";
+import type { TermKind, TermOption } from "@/lib/termCatalog";
+import TermPicker from "./TermPicker";
 
 type Props = {
   project: PortfolioProject;
   sections: PortfolioSection[];
   isNew: boolean;
   busy: boolean;
+  technologyCatalog: TermOption[];
+  toolCatalog: TermOption[];
+  onCreateTerm: (kind: TermKind, name: string, category: string, description: string) => void;
   onChange: (project: PortfolioProject) => void;
   onSave: (project: PortfolioProject, file: File | null) => Promise<boolean>;
   onCancel: () => void;
@@ -43,13 +48,7 @@ export function createEmptyProject(section: string, linkMode: SectionLinkMode = 
   };
 }
 
-function toItems(input: string) {
-  return [...new Set(input.split(",").map((item) => item.trim()).filter(Boolean))];
-}
-
-export default function AdminProjectForm({ project, sections, isNew, busy, onChange, onSave, onCancel }: Props) {
-  const [technologies, setTechnologies] = useState(project.technologies.join(", "));
-  const [tools, setTools] = useState(project.tools.join(", "));
+export default function AdminProjectForm({ project, sections, isNew, busy, technologyCatalog, toolCatalog, onCreateTerm, onChange, onSave, onCancel }: Props) {
   const [file, setFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState<string | null>(null);
   const [advanced, setAdvanced] = useState(false);
@@ -90,8 +89,7 @@ export default function AdminProjectForm({ project, sections, isNew, busy, onCha
       setError("Obrázek může mít nejvýše 6 MB.");
       return;
     }
-    const draft = { ...project, technologies: toItems(technologies), tools: toItems(tools) };
-    await onSave(draft, file);
+    await onSave(project, file);
   }
 
   return (
@@ -174,17 +172,13 @@ export default function AdminProjectForm({ project, sections, isNew, busy, onCha
 
       <section className="rounded-xl bg-white p-5 shadow-soft ring-1 ring-slate-200 sm:p-6">
         <h3 className="mb-4 text-lg font-semibold text-ink">Technologie a nástroje</h3>
-        <div className="grid gap-4 md:grid-cols-2">
-          <label className="grid gap-1.5 text-sm font-medium text-slate-700">
-            Technologie
-            <input className="admin-input" value={technologies} onChange={(event) => setTechnologies(event.target.value)} placeholder="React, Next.js, Python" />
-            <span className="text-xs font-normal text-slate-500">Odděluj čárkou.</span>
-          </label>
-          <label className="grid gap-1.5 text-sm font-medium text-slate-700">
-            Použité nástroje
-            <input className="admin-input" value={tools} onChange={(event) => setTools(event.target.value)} placeholder="ChatGPT, Codex" />
-            <span className="text-xs font-normal text-slate-500">Odděluj čárkou.</span>
-          </label>
+        <div className="grid items-start gap-4 md:grid-cols-2">
+          <TermPicker kind="technologies" title="Technologie a vlastnosti"
+            selected={project.technologies} catalog={technologyCatalog} disabled={busy}
+            onChange={(items) => update("technologies", items)} onCreate={onCreateTerm} />
+          <TermPicker kind="tools" title="Použité nástroje"
+            selected={project.tools} catalog={toolCatalog} disabled={busy}
+            onChange={(items) => update("tools", items)} onCreate={onCreateTerm} />
         </div>
         <label className="mt-4 flex items-center gap-2 text-sm font-medium text-slate-700">
           <input type="checkbox" checked={project.featured} onChange={(event) => update("featured", event.target.checked)} />
