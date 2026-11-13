@@ -337,7 +337,7 @@
       ],
       "tools": [
         "Cursor",
-        "ChaGPT"
+        "ChatGPT"
       ],
       "visibility": "public",
       "thumbnail": "/thumbnails/web.webp",
@@ -402,5 +402,89 @@
       "source": "manual",
       "notesPrivate": ""
     }
-  ]
+  ],
+  "termDescriptions": {
+    "technologies": {
+      "AI workflow": "Pracovní postup, ve kterém umělá inteligence pomáhá provádět nebo řídit jednotlivé kroky.",
+      "CDN": "Distribuovaná síť serverů, která zrychluje doručování webového obsahu.",
+      "Databricks": "Platforma pro zpracování dat, analytiku a práci s modely strojového učení.",
+      "HTML": "Značkovací jazyk určující strukturu a obsah webové stránky.",
+      "HTML/CSS": "HTML definuje obsah stránky a CSS její vzhled a rozvržení.",
+      "JavaScript": "Programovací jazyk používaný mimo jiné pro interaktivitu webových aplikací.",
+      "LLM (Sonet 4.6)": "Označení jazykového modelu použitého pro generování a zpracování textu.",
+      "Next.js": "Framework postavený na Reactu pro tvorbu webových aplikací.",
+      "Powershell": "Skriptovací jazyk a příkazové prostředí pro automatizaci správy systémů.",
+      "Python": "Univerzální programovací jazyk používaný pro skripty, automatizaci a analýzu dat.",
+      "React": "JavaScriptová knihovna pro tvorbu uživatelských rozhraní.",
+      "Render": "Cloudová platforma pro provoz a nasazování webových aplikací a služeb.",
+      "Ubuntu": "Linuxová distribuce využívaná na pracovních stanicích a serverech.",
+      "Vercel": "Cloudová platforma zaměřená na nasazování a hosting webových aplikací.",
+      "admin UI": "Administrační uživatelské rozhraní pro správu nastavení nebo obsahu aplikace.",
+      "audio": "Funkce nebo data související se zvukem, například záznam a přehrávání.",
+      "brand system": "Soubor pravidel pro jednotnou vizuální podobu a komunikaci značky.",
+      "catalog": "Strukturovaný přehled položek s možností jejich organizace a vyhledávání.",
+      "css": "Jazyk stylů, který určuje vizuální podobu a rozložení webových stránek.",
+      "dashboard": "Přehledová obrazovka se souhrnem důležitých informací a ukazatelů.",
+      "data visualization": "Grafické znázornění dat pro snazší interpretaci a analýzu.",
+      "intranet": "Interní síť nebo web určený pouze oprávněným uživatelům organizace.",
+      "learning app": "Aplikace určená ke studiu, procvičování nebo testování znalostí.",
+      "project management": "Organizace projektových úkolů, priorit, termínů a odpovědností.",
+      "prototype": "Zkušební verze řešení sloužící k ověření nápadu nebo funkčnosti.",
+      "responsive UI": "Uživatelské rozhraní, které se přizpůsobuje velikosti displeje.",
+      "signage": "Digitální informační nebo prezentační obsah zobrazovaný na obrazovkách.",
+      "web": "Webové stránky dostupné prostřednictvím internetového prohlížeče.",
+      "web app": "Aplikace používaná v internetovém prohlížeči bez běžné instalace.",
+      "workflow": "Posloupnost kroků, podle které se vykonává určitý pracovní proces."
+    },
+    "tools": {
+      "AI": "Obecné označení nástrojů využívajících umělou inteligenci.",
+      "ChatGPT": "Konverzační AI asistent pro práci s textem, nápady, daty a kódem.",
+      "Claude code": "AI nástroj pro programování a práci se zdrojovým kódem.",
+      "Codex": "AI programovací agent pro úpravy, analýzu a testování kódu.",
+      "Cursor": "Editor kódu s integrovanou asistencí umělé inteligence.",
+      "Databricks": "Pracovní prostředí a nástroje pro zpracování a analýzu dat."
+    }
+  },
+  "termCategories": {
+    "technologies": {
+      "AI workflow": "AI a automatizace",
+      "CDN": "Infrastruktura a systémy",
+      "Databricks": "Data a analytika",
+      "HTML": "Web a frontend",
+      "HTML/CSS": "Web a frontend",
+      "JavaScript": "Web a frontend",
+      "LLM (Sonet 4.6)": "AI a automatizace",
+      "Next.js": "Web a frontend",
+      "Powershell": "Infrastruktura a systémy",
+      "Python": "Infrastruktura a systémy",
+      "React": "Web a frontend",
+      "Render": "Hosting a provoz",
+      "Ubuntu": "Infrastruktura a systémy",
+      "Vercel": "Hosting a provoz",
+      "admin UI": "Rozhraní a design",
+      "audio": "Multimédia",
+      "brand system": "Rozhraní a design",
+      "catalog": "Typ a funkce aplikace",
+      "css": "Web a frontend",
+      "dashboard": "Data a analytika",
+      "data visualization": "Data a analytika",
+      "intranet": "Infrastruktura a systémy",
+      "learning app": "Typ a funkce aplikace",
+      "project management": "Typ a funkce aplikace",
+      "prototype": "Typ a funkce aplikace",
+      "responsive UI": "Rozhraní a design",
+      "signage": "Multimédia",
+      "web": "Typ a funkce aplikace",
+      "web app": "Typ a funkce aplikace",
+      "workflow": "AI a automatizace"
+    },
+    "tools": {
+      "AI": "AI asistenti",
+      "ChatGPT": "AI asistenti",
+      "Claude code": "AI asistenti",
+      "Codex": "AI asistenti",
+      "Cursor": "Vývojová prostředí",
+      "Databricks": "Datové platformy"
+    }
+  }
 }
