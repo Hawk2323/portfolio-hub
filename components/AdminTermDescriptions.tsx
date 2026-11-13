@@ -2,102 +2,184 @@
 
 import { useMemo, useState } from "react";
 import type { ProjectsFile } from "@/lib/schema";
+import { addTermToCatalog, getTermCatalog, TERM_CATEGORIES, type TermKind, type TermOption } from "@/lib/termCatalog";
 
-type TermKind = "technologies" | "tools";
-type TermRow = { kind: TermKind; name: string; sections: string[]; description: string };
 type Props = { data: ProjectsFile; busy: boolean; onChange: (data: ProjectsFile) => void; onSave: () => void };
+type Row = TermOption & { kind: TermKind };
 
 export default function AdminTermDescriptions({ data, busy, onChange, onSave }: Props) {
   const [query, setQuery] = useState("");
   const [kindFilter, setKindFilter] = useState("all");
-  const [onlyMissing, setOnlyMissing] = useState(true);
+  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [onlyMissing, setOnlyMissing] = useState(false);
   const [expanded, setExpanded] = useState<string[]>([]);
+  const [creating, setCreating] = useState(false);
+  const [newKind, setNewKind] = useState<TermKind>("technologies");
+  const [newName, setNewName] = useState("");
+  const [newCategory, setNewCategory] = useState(TERM_CATEGORIES.technologies[0]);
+  const [newDescription, setNewDescription] = useState("");
+  const [addError, setAddError] = useState("");
 
-  const terms = useMemo<TermRow[]>(() => {
-    const results: TermRow[] = [];
-    for (const kind of ["technologies", "tools"] as TermKind[]) {
-      const usage = new Map<string, Set<string>>();
-      for (const project of data.projects) {
-        for (const name of project[kind]) {
-          if (!usage.has(name)) usage.set(name, new Set<string>());
-          const title = data.sections.find((section) => section.id === project.section)?.title ?? project.section;
-          usage.get(name)?.add(title);
-        }
-      }
-      for (const [name, sections] of usage) {
-        results.push({ kind, name, sections: [...sections], description: data.termDescriptions[kind][name] ?? "" });
-      }
+  const terms = useMemo<Row[]>(() => [
+    ...getTermCatalog(data, "technologies").map((item) => ({ ...item, kind: "technologies" as const })),
+    ...getTermCatalog(data, "tools").map((item) => ({ ...item, kind: "tools" as const }))
+  ], [data]);
+  const missingCount = terms.filter((item) => !item.description.trim()).length;
+
+  const visible = terms.filter((item) => (
+    (kindFilter === "all" || item.kind === kindFilter) &&
+    (categoryFilter === "all" || item.category === categoryFilter) &&
+    (!onlyMissing || !item.description.trim() || expanded.includes(item.kind + ":" + item.name)) &&
+    [item.name, item.category, item.description].some((text) => text.toLocaleLowerCase("cs").includes(query.trim().toLocaleLowerCase("cs")))
+  ));
+  const groups = useMemo(() => {
+    const categories = new Map<string, Row[]>();
+    for (const term of visible) {
+      const key = term.kind + ":" + term.category;
+      if (!categories.has(key)) categories.set(key, []);
+      categories.get(key)?.push(term);
     }
-    return results.sort((a, b) => a.name.localeCompare(b.name, "cs") || a.kind.localeCompare(b.kind));
-  }, [data]);
+    return [...categories.entries()];
+  }, [visible]);
+  const allCategories = [...new Set(terms.map((item) => item.category))].sort((a, b) => a.localeCompare(b, "cs"));
 
-  const missingCount = terms.filter((term) => !term.description.trim()).length;
-  const visible = terms.filter((term) =>
-    (kindFilter === "all" || term.kind === kindFilter) &&
-    (!onlyMissing || !term.description.trim() || expanded.includes(term.kind + ":" + term.name)) &&
-    (term.name.toLocaleLowerCase("cs").includes(query.toLocaleLowerCase("cs")) || term.sections.some((section) => section.toLocaleLowerCase("cs").includes(query.toLocaleLowerCase("cs"))))
-  );
-
-  function updateDescription(kind: TermKind, name: string, description: string) {
-    onChange({
-      ...data,
-      termDescriptions: {
-        ...data.termDescriptions,
-        [kind]: { ...data.termDescriptions[kind], [name]: description }
-      }
-    });
+  function updateTerm(kind: TermKind, name: string, field: "category" | "description", value: string) {
+    if (field === "category") {
+      onChange({
+        ...data,
+        termCategories: { ...data.termCategories, [kind]: { ...data.termCategories[kind], [name]: value } }
+      });
+    } else {
+      onChange({
+        ...data,
+        termDescriptions: { ...data.termDescriptions, [kind]: { ...data.termDescriptions[kind], [name]: value } }
+      });
+    }
   }
 
   function toggle(key: string) {
-    setExpanded((previous) => previous.includes(key) ? previous.filter((item) => item !== key) : [...previous, key]);
+    setExpanded((items) => items.includes(key) ? items.filter((item) => item !== key) : [...items, key]);
+  }
+
+  function addNewTerm() {
+    try {
+      const next = addTermToCatalog(data, newKind, newName, newCategory, newDescription);
+      onChange(next);
+      setCreating(false);
+      setNewName("");
+      setNewDescription("");
+      setAddError("");
+    } catch (caught) {
+      setAddError(caught instanceof Error ? caught.message : "Položku se nepodařilo přidat.");
+    }
   }
 
   return (
-    <div className="grid gap-5 rounded-xl bg-white p-5 shadow-soft ring-1 ring-slate-200 sm:p-6">
+    <section className="grid gap-5 rounded-xl bg-white p-5 shadow-soft ring-1 ring-slate-200 sm:p-6">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h2 className="text-xl font-semibold text-ink">Technologie a nástroje</h2>
-          <p className="mt-1 text-sm text-slate-600">Každá technologie má jeden společný popis pro všechny projekty. Popis se na veřejném webu zobrazí po najetí myší.</p>
-          <p className="mt-2 text-sm font-medium text-slate-600">{terms.length} unikátních pojmů · {missingCount} bez popisu</p>
+          <h2 className="text-xl font-semibold text-ink">Katalog technologií a nástrojů</h2>
+          <p className="mt-1 max-w-3xl text-sm text-slate-600">
+            Sdílený katalog pro všechny projekty. Každý pojem má kategorii a vysvětlení, které se zobrazí i na veřejném portfoliu.
+          </p>
+          <p className="mt-2 text-sm text-slate-500">{terms.filter((term) => term.kind === "technologies").length} technologií · {terms.filter((term) => term.kind === "tools").length} nástrojů · {missingCount} bez popisu</p>
         </div>
-        <button className="admin-button-primary" type="button" disabled={busy} onClick={onSave}>Uložit popisy</button>
+        <div className="flex flex-wrap gap-2">
+          <button className="admin-button-secondary" type="button" onClick={() => setCreating(!creating)}>{creating ? "Zavřít přidávání" : "+ Nová položka"}</button>
+          <button className="admin-button-primary" type="button" disabled={busy} onClick={onSave}>Uložit katalog</button>
+        </div>
       </div>
-      <div className="flex flex-wrap items-center gap-3">
-        <input className="admin-input min-w-48 flex-1" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Hledat technologii nebo nástroj…" aria-label="Hledat technologii nebo nástroj" />
-        <select className="admin-input" value={kindFilter} onChange={(event) => setKindFilter(event.target.value)} aria-label="Typ pojmu">
-          <option value="all">Vše</option><option value="technologies">Technologie</option><option value="tools">Nástroje</option>
+      {creating ? (
+        <div className="grid gap-3 rounded-lg border border-pine/20 bg-pine/5 p-4">
+          <h3 className="font-semibold text-ink">Přidat pojem do katalogu</h3>
+          <div className="grid gap-3 md:grid-cols-2">
+            <label className="grid gap-1 text-sm font-medium text-slate-700">Typ položky
+              <select className="admin-input" value={newKind} onChange={(event) => {
+                const kind = event.target.value as TermKind;
+                setNewKind(kind); setNewCategory(TERM_CATEGORIES[kind][0]);
+              }}>
+                <option value="technologies">Technologie</option>
+                <option value="tools">Nástroj</option>
+              </select>
+            </label>
+            <label className="grid gap-1 text-sm font-medium text-slate-700">Kategorie
+              <select className="admin-input" value={newCategory} onChange={(event) => setNewCategory(event.target.value)}>
+                {TERM_CATEGORIES[newKind].map((category) => <option key={category} value={category}>{category}</option>)}
+              </select>
+            </label>
+            <label className="grid gap-1 text-sm font-medium text-slate-700">Název *
+              <input className="admin-input" value={newName} maxLength={80} onChange={(event) => setNewName(event.target.value)} />
+            </label>
+            <label className="grid gap-1 text-sm font-medium text-slate-700">Stručný popis *
+              <textarea className="admin-input min-h-20" maxLength={500} value={newDescription} onChange={(event) => setNewDescription(event.target.value)} />
+            </label>
+          </div>
+          {addError ? <p role="alert" className="text-sm text-red-700">{addError}</p> : null}
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <p className="text-xs text-slate-500">Nová položka bude nabízena v editorech projektů po uložení katalogu.</p>
+            <button className="admin-button-primary" type="button" onClick={addNewTerm}>Přidat do katalogu</button>
+          </div>
+        </div>
+      ) : null}
+      <div className="flex flex-wrap gap-3">
+        <input className="admin-input min-w-48 flex-1" type="search" placeholder="Hledat název, kategorii nebo popis…" aria-label="Hledat položku katalogu" value={query} onChange={(event) => setQuery(event.target.value)} />
+        <select className="admin-input" value={kindFilter} aria-label="Filtrovat typ" onChange={(event) => {setKindFilter(event.target.value);setCategoryFilter("all");}}>
+          <option value="all">Technologie i nástroje</option>
+          <option value="technologies">Technologie</option>
+          <option value="tools">Nástroje</option>
+        </select>
+        <select className="admin-input" value={categoryFilter} aria-label="Filtrovat kategorii" onChange={(event) => setCategoryFilter(event.target.value)}>
+          <option value="all">Všechny kategorie</option>
+          {allCategories.filter((category) =>
+            kindFilter === "all" || terms.some((term) => term.kind === kindFilter && term.category === category)
+          ).map((category) => <option key={category} value={category}>{category}</option>)}
         </select>
         <label className="flex items-center gap-2 text-sm text-slate-700">
           <input type="checkbox" checked={onlyMissing} onChange={(event) => setOnlyMissing(event.target.checked)} /> Jen bez popisu
         </label>
       </div>
-      <div className="grid gap-2">
-        {visible.length === 0 ? <p className="rounded-lg border border-dashed border-slate-200 p-5 text-sm text-slate-500">Žádné odpovídající položky.</p> : null}
-        {visible.map((term) => {
-          const key = term.kind + ":" + term.name;
-          const open = expanded.includes(key);
-          const missing = !term.description.trim();
+      {visible.length === 0 ? <p className="rounded-lg border border-dashed border-slate-200 p-5 text-sm text-slate-600">Žádné položky neodpovídají filtru.</p> : null}
+      <div className="grid gap-5">
+        {groups.map(([key,items]) => {
+          const kind = items[0].kind;
+          const category = items[0].category;
           return (
-            <div className="rounded-lg border border-slate-200" key={key}>
-              <button type="button" className="flex w-full flex-wrap items-center justify-between gap-2 px-4 py-3 text-left hover:bg-slate-50" onClick={() => toggle(key)} aria-expanded={open}>
-                <span className="flex flex-wrap items-center gap-2">
-                  <span className="font-semibold text-ink">{term.name}</span>
-                  <span className="text-xs text-slate-500">{term.kind === "tools" ? "Nástroj" : "Technologie"} · {term.sections.join(", ")}</span>
-                </span>
-                <span className="flex items-center gap-2 text-xs">
-                  {missing ? <span className="rounded-full bg-amber-50 px-2 py-1 font-semibold text-amber-700">Bez popisu</span> : <span className="text-pine">Vyplněno</span>}
-                  <span className="text-slate-500">{open ? "▲" : "▼"}</span>
-                </span>
-              </button>
-              {open ? (
-                <div className="border-t border-slate-100 p-3">
-                  <textarea aria-label={"Popis: " + term.name} className="admin-input min-h-24 w-full" value={term.description} onChange={(event) => updateDescription(term.kind, term.name, event.target.value)} placeholder="Co to je a jakou roli to má v projektu?" />
-                </div>
-              ) : null}
+            <div key={key} className="overflow-hidden rounded-lg border border-slate-200">
+              <div className="flex flex-wrap items-center justify-between gap-2 bg-slate-50 px-4 py-3">
+                <h3 className="font-semibold text-ink">{kind === "technologies" ? "Technologie" : "Nástroje"} / {category}</h3>
+                <span className="text-xs text-slate-500">{items.length} položek</span>
+              </div>
+              {items.map((term) => {
+                const id = term.kind + ":" + term.name;
+                const open = expanded.includes(id);
+                return (
+                  <div key={id} className="border-t border-slate-100">
+                    <button type="button" aria-expanded={open} className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left hover:bg-slate-50" onClick={() => toggle(id)}>
+                      <span className="min-w-0">
+                        <span className="block text-sm font-semibold text-ink">{term.name}</span>
+                        <span className="mt-0.5 block text-xs text-slate-500">{term.description || "Popis chybí."}</span>
+                      </span>
+                      <span className="shrink-0 text-xs text-slate-500">{open ? "Skrýt ▲" : "Upravit ▼"}</span>
+                    </button>
+                    {open ? (
+                      <div className="grid gap-3 border-t border-slate-100 bg-white p-4 md:grid-cols-[minmax(160px,1fr)_minmax(0,2fr)]">
+                        <label className="grid gap-1 text-sm font-medium text-slate-700">Kategorie
+                          <select className="admin-input" value={term.category} onChange={(event) => updateTerm(term.kind, term.name, "category", event.target.value)}>
+                            {TERM_CATEGORIES[term.kind].map((category) => <option key={category} value={category}>{category}</option>)}
+                          </select>
+                        </label>
+                        <label className="grid gap-1 text-sm font-medium text-slate-700">Popis
+                          <textarea className="admin-input min-h-24" maxLength={500} value={term.description} onChange={(event) => updateTerm(term.kind, term.name, "description", event.target.value)} />
+                        </label>
+                      </div>
+                    ) : null}
+                  </div>
+                );
+              })}
             </div>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
