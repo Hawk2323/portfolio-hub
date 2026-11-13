@@ -7,6 +7,7 @@ import type { PortfolioProject, PortfolioSection, ProjectsFile, SectionLinkMode 
 import { slugify } from "@/lib/slug";
 import AdminProjectForm, { createEmptyProject } from "./AdminProjectForm";
 import AdminTermDescriptions from "./AdminTermDescriptions";
+import { addTermToCatalog, getTermCatalog, type TermKind } from "@/lib/termCatalog";
 
 type Tab = "projects" | "sections" | "terms";
 type Props = { editProjectId?: string };
@@ -57,6 +58,8 @@ export default function AdminProjectList({ editProjectId }: Props) {
   const isNew = editProjectId === "new";
 
   const sections = useMemo(() => sortSections(data?.sections ?? []), [data]);
+  const technologyCatalog = useMemo(() => data ? getTermCatalog(data, "technologies") : [], [data]);
+  const toolCatalog = useMemo(() => data ? getTermCatalog(data, "tools") : [], [data]);
   const sectionNameById = useMemo(() => new Map(sections.map((section) => [section.id, section.title])), [sections]);
   const sortedProjects = useMemo(() => {
     const order = new Map(sections.map((section, index) => [section.id, index]));
@@ -75,9 +78,10 @@ export default function AdminProjectList({ editProjectId }: Props) {
 
   const unsavedList = !isEditor && data !== null && savedDataRef.current !== null &&
     JSON.stringify(data) !== JSON.stringify(savedDataRef.current);
-  const unsavedEditor = isEditor && Boolean(editing && (isNew
-    ? Boolean(editing.title.trim() || editing.url.trim() || editing.description.trim())
-    : JSON.stringify(editing) !== JSON.stringify(initialEditing)));
+  const unsavedEditor = isEditor && Boolean(
+    (editing && initialEditing && JSON.stringify(editing) !== JSON.stringify(initialEditing)) ||
+    (data && savedDataRef.current && JSON.stringify(data) !== JSON.stringify(savedDataRef.current))
+  );
   const unsaved = Boolean(unsavedList || unsavedEditor);
 
   useEffect(() => {
@@ -282,6 +286,11 @@ export default function AdminProjectList({ editProjectId }: Props) {
     return Boolean(saved);
   }
 
+  function createCatalogTerm(kind: TermKind, name: string, category: string, description: string) {
+    if (!data) throw new Error("Projektová data nejsou načtená.");
+    setData(addTermToCatalog(data, kind, name, category, description));
+  }
+
   function updateSection(id: string, patch: Partial<PortfolioSection>) {
     if (!data) return;
     const original = data.sections.find((section) => section.id === id);
@@ -413,6 +422,9 @@ export default function AdminProjectList({ editProjectId }: Props) {
             sections={data.sections}
             isNew={isNew}
             busy={busy}
+            technologyCatalog={technologyCatalog}
+            toolCatalog={toolCatalog}
+            onCreateTerm={createCatalogTerm}
             onChange={setEditing}
             onSave={saveEditedProject}
             onCancel={editorBack}
