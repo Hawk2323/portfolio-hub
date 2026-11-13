@@ -1,27 +1,33 @@
-# Admin
+# Administrace Portfolio Hub
 
-The admin UI lives at `/admin` and is protected by a signed HttpOnly cookie.
+Administrace běží na `/admin` a používá podepsanou `HttpOnly` cookie.
 
-## Required environment variables
+## Ovládání
 
-- `ADMIN_PASSWORD`: password typed into the admin form.
-- `SESSION_SECRET`: long random string used to sign the session cookie.
-- `GITHUB_TOKEN`: token used by the API to update `data/projects.json` through the GitHub Contents API.
-- `GITHUB_OWNER`: defaults to `Hawk2323`.
-- `GITHUB_REPO`: defaults to `portfolio-hub`.
-- `GITHUB_BRANCH`: defaults to `main`.
+- **Projekty**: vyhledávání, filtr sekce a stavu, malé náhledy, změna pořadí pomocí šipek. Změněné pořadí se ukládá tlačítkem **Uložit změny**.
+- **Sekce**: úprava názvu, popisu a výchozího typu odkazu; změna výchozího typu odkazu po potvrzení aktualizuje i projekty v dané sekci.
+- **Technologie a nástroje**: jedno sdílené vysvětlení pro každý přesný název, přepínač chybějících popisů.
+- **Editor**: `/admin/projects/[id]/edit`, nový projekt na `/admin/projects/new/edit`. Opuštění rozpracovaných změn je chráněno potvrzením. Existující ID a slug nejsou přepisovány při přejmenování.
+- **Náhled**: vlastní obrázek se vybere ve formuláři a nahraje při uložení; uložením se nastaví `manual` a `thumbnailLocked=true`. Automatické generování v produkci probíhá přes GitHub Actions, nikoli tlačítkem v administraci.
+- **Archivace/smazání**: potvrzovací dialog. Archivace zároveň nastaví `visibility=private`.
 
-In production, writes are rejected unless GitHub write configuration is present. Local development can write directly to `data/projects.json`.
+**Pozor:** `notesPrivate` není vykresleno na veřejném webu, ale zůstává v `data/projects.json`. Pokud je repozitář veřejný, není toto pole vhodné pro důvěrné informace.
 
-## Session behavior
+## Prostředí a zápisy
 
-- Cookie name: `portfolio_hub_session`.
-- Cookie flags: `HttpOnly`, `SameSite=Lax`, `Secure` in production.
-- Session lifetime: 12 hours.
-- Passwords and tokens are never returned to the frontend.
+V produkci API aktualizuje `data/projects.json` přes GitHub Contents API. Při souběžné změně `updatedAt` se zápis odmítne, aby nedošlo k tichému přepsání novějších dat.
 
-## Admin actions
+Ve Vercel Preview používá API `VERCEL_GIT_COMMIT_REF` místo `GITHUB_BRANCH=main`, aby testování z preview nezasáhlo produkční větev. Pokud ref preview není dostupný, zápisy nejsou povoleny. Každý zápis do preview větve může způsobit nový preview deployment.
 
-The admin can add, edit, archive, delete, reorder, publish, hide, and retag projects. New projects default to `visibility = private`.
+Vlastní nahrání obrázku je samostatný GitHub commit. Pokud následné uložení projektu selže, může v repozitáři zůstat nevyužitý obrázek.
 
-Manual thumbnail uploads accept JPEG, PNG, and WebP images up to 6 MB. The server converts the upload to a `1200 x 760` WebP file without cropping it, stores it in `public/thumbnails`, and saves the project with `thumbnailMode = manual` and `thumbnailLocked = true` so automated thumbnail generation will not overwrite it.
+## Proměnné prostředí
+
+- `ADMIN_PASSWORD`: heslo zadané do přihlašovacího formuláře.
+- `SESSION_SECRET`: dlouhý náhodný řetězec pro podpis session cookie.
+- `GITHUB_TOKEN`: minimální oprávnění Contents: Read/Write pouze pro daný repozitář.
+- `GITHUB_OWNER`: výchozí `Hawk2323`.
+- `GITHUB_REPO`: výchozí `portfolio-hub`.
+- `GITHUB_BRANCH`: produkční cílová větev, výchozí `main`.
+
+Session trvá 12 hodin; cookie je `HttpOnly`, `SameSite=Lax` a v produkci `Secure`. Hesla ani tokeny se nikdy nevracejí do frontendu.
