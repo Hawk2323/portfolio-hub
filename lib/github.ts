@@ -5,7 +5,7 @@ type GitHubContent = { content: string; sha: string; encoding: string };
 function githubConfig() {
   // Preview writes must never silently mutate production main.
   const branch = process.env.VERCEL_ENV === "preview"
-    ? process.env.VERCEL_GIT_COMMIT_REF
+    ? (process.env.VERCEL_GIT_COMMIT_REF ?? "")
     : (process.env.GITHUB_BRANCH ?? "main");
   return {
     token: process.env.GITHUB_TOKEN,
