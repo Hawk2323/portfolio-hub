@@ -194,7 +194,7 @@ export default function AdminProjectForm({ project, sections, isNew, busy, onCha
 
       <section className="rounded-xl bg-white p-5 shadow-soft ring-1 ring-slate-200 sm:p-6">
         <label className="grid gap-1.5 text-sm font-medium text-slate-700">
-          Soukromé poznámky (nezobrazují se veřejně)
+          Poznámky (nezobrazují se na webu; jsou ale v GitHub repozitáři)
           <textarea className="admin-input min-h-24" value={project.notesPrivate} onChange={(event) => update("notesPrivate", event.target.value)} />
         </label>
       </section>
